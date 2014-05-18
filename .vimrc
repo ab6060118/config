@@ -3,12 +3,15 @@ imap jj <ESC>
 syntax on
 syntax enable
 
+set expandtab
+set shiftwidth=2
 set number
 set tabstop=4
 set t_Co=256
 set laststatus=2		" vim status bar
 " let g:Powerline_symbols = 'fancy'
 
+filetype indent on
 filetype plugin indent on
 let g:pydiction_location = '~/.vim/bundle/pydiction/complete-dict'
 
