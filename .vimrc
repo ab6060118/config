@@ -18,6 +18,8 @@ let g:pydiction_location = '~/.vim/bundle/pydiction/complete-dict'
 " supertab
 let g:SuperTabDefaultCompletionType = "context"
 
+" zencoding
+
 let iiCanHazVundle=1
 let vundle_readme=expand('~/.vim/bundle/vundle/README.md')
 if !filereadable(vundle_readme)
@@ -39,3 +41,4 @@ Bundle 'Lokaltog/vim-powerline'
 Bundle 'rkulla/pydiction'
 Bundle 'ervandew/supertab'
 Bundle 'AutoComplPop'
+Bundle 'mattn/emmet-vim'
