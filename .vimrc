@@ -19,6 +19,7 @@ let g:pydiction_location = '~/.vim/bundle/pydiction/complete-dict'
 let g:SuperTabDefaultCompletionType = "context"
 
 " zencoding
+let g:user_emmet_leader_key='<C-Z>'
 
 let iiCanHazVundle=1
 let vundle_readme=expand('~/.vim/bundle/vundle/README.md')
