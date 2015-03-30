@@ -13,7 +13,7 @@ set laststatus=2		" vim status bar
 
 filetype indent on
 filetype plugin indent on
-let g:pydiction_location = '~/.vim/bundle/pydiction/complete-dict'
+" let g:pydiction_location = '~/.vim/bundle/pydiction/complete-dict'
 
 " supertab
 let g:SuperTabDefaultCompletionType = "context"
@@ -39,7 +39,7 @@ Bundle 'gmarik/vundle'
 
 " git repo
 Bundle 'Lokaltog/vim-powerline'
-Bundle 'rkulla/pydiction'
+" Bundle 'rkulla/pydiction'
 Bundle 'ervandew/supertab'
 Bundle 'AutoComplPop'
 Bundle 'mattn/emmet-vim'
