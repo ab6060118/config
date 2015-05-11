@@ -7,10 +7,20 @@ set expandtab
 set shiftwidth=2
 set number
 set tabstop=4
-set t_Co=256
-set laststatus=2		" vim status bar
-" let g:Powerline_symbols = 'fancy'
 
+" set laststatus=2		" vim status bar
+
+set t_Co=256
+colorscheme wombat256
+
+"folding
+set foldenable 
+autocmd filetype python set foldmethod=indent
+set foldcolumn=0 
+set foldnestmax=2 
+nnoremap <space> za
+
+" let g:Powerline_symbols = 'fancy'
 filetype indent on
 filetype plugin indent on
 " let g:pydiction_location = '~/.vim/bundle/pydiction/complete-dict'
