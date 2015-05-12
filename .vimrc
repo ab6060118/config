@@ -8,7 +8,7 @@ set shiftwidth=2
 set number
 set tabstop=4
 
-" set laststatus=2		" vim status bar
+set laststatus=2		" vim status bar
 
 set t_Co=256
 colorscheme wombat256
@@ -48,7 +48,7 @@ call vundle#rc()
 Bundle 'gmarik/vundle'
 
 " git repo
-Bundle 'Lokaltog/vim-powerline'
+" Bundle 'Lokaltog/vim-powerline'
 " Bundle 'rkulla/pydiction'
 Bundle 'ervandew/supertab'
 Bundle 'AutoComplPop'
