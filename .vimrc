@@ -4,11 +4,11 @@ syntax on
 syntax enable
 
 set expandtab
-set shiftwidth=2
+set shiftwidth=4
 set number
 set tabstop=4
-
 set laststatus=2		" vim status bar
+set wildmenu
 
 set t_Co=256
 colorscheme wombat256
@@ -16,6 +16,8 @@ colorscheme wombat256
 "folding
 set foldenable 
 autocmd filetype python set foldmethod=indent
+autocmd filetype php set foldmethod=indent
+autocmd filetype html set foldmethod=indent
 set foldcolumn=0 
 set foldnestmax=2 
 nnoremap <space> za
@@ -51,5 +53,5 @@ Bundle 'gmarik/vundle'
 " Bundle 'Lokaltog/vim-powerline'
 " Bundle 'rkulla/pydiction'
 Bundle 'ervandew/supertab'
-Bundle 'AutoComplPop'
+" Bundle 'AutoComplPop'
 Bundle 'mattn/emmet-vim'
