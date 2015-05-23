@@ -69,3 +69,5 @@ export PATH=/usr/local/heroku/bin:$PATH;
 export EDITOR='vi'
 
 # screen -rd
+tmux detach
+tmux attach
