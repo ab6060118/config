@@ -33,6 +33,11 @@ let g:SuperTabDefaultCompletionType = "context"
 " zencoding
 let g:user_emmet_leader_key='<C-Z>'
 
+" vdebug
+" let g:vdebug_keymap = { 'step_over': '<S-Q>', 'step_into': '<S-W>', 'step_out': '<S-E>' }
+" let g:vdebug_options = {'break_on_open': 0}
+
+
 let iiCanHazVundle=1
 let vundle_readme=expand('~/.vim/bundle/vundle/README.md')
 if !filereadable(vundle_readme)
@@ -55,3 +60,4 @@ Bundle 'gmarik/vundle'
 Bundle 'ervandew/supertab'
 " Bundle 'AutoComplPop'
 Bundle 'mattn/emmet-vim'
+" Bundle 'joonty/vdebug'
