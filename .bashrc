@@ -43,6 +43,7 @@ alias ll='ls -l'
 alias la='ls -A'
 alias mv='mv -i'
 alias rm='rm -i'
+alias grep='grep --color'
 alias tmux='TERM=xterm-256color tmux -2'
 
 #using bash with vi mode
