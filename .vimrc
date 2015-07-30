@@ -9,6 +9,7 @@ set number
 set tabstop=4
 set laststatus=2		" vim status bar
 set wildmenu
+set autoindent
 
 set t_Co=256
 colorscheme wombat256
@@ -22,16 +23,22 @@ set foldcolumn=0
 set foldnestmax=2 
 nnoremap <space> za
 
+
 " let g:Powerline_symbols = 'fancy'
-filetype indent on
-filetype plugin indent on
-" let g:pydiction_location = '~/.vim/bundle/pydiction/complete-dict'
+
+" python dictionary
+ let g:pydiction_location = '~/.vim/bundle/pydiction/complete-dict'
 
 " supertab
 let g:SuperTabDefaultCompletionType = "context"
 
 " zencoding
 let g:user_emmet_leader_key='<C-Z>'
+
+" vdebug
+" let g:vdebug_keymap = { 'step_over': '<S-Q>', 'step_into': '<S-W>', 'step_out': '<S-E>' }
+" let g:vdebug_options = {'break_on_open': 0}
+
 
 let iiCanHazVundle=1
 let vundle_readme=expand('~/.vim/bundle/vundle/README.md')
@@ -51,7 +58,9 @@ Bundle 'gmarik/vundle'
 
 " git repo
 " Bundle 'Lokaltog/vim-powerline'
-" Bundle 'rkulla/pydiction'
+Bundle 'rkulla/pydiction'
 Bundle 'ervandew/supertab'
+" Bundle 'davidhalter/jedi-vim'
 " Bundle 'AutoComplPop'
 Bundle 'mattn/emmet-vim'
+" Bundle 'joonty/vdebug'
