@@ -58,7 +58,7 @@ Bundle 'gmarik/vundle'
 
 " git repo
 " Bundle 'Lokaltog/vim-powerline'
-Bundle 'rkulla/pydiction'
+" Bundle 'rkulla/pydiction'
 Bundle 'ervandew/supertab'
 " Bundle 'davidhalter/jedi-vim'
 " Bundle 'AutoComplPop'
