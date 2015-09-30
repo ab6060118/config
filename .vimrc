@@ -13,6 +13,11 @@ set autoindent
 
 set t_Co=256
 colorscheme wombat256
+set background=light
+set hlsearch
+hi Comment ctermfg=red
+
+noremap   <leader>b    :call BackgroundToggle()<CR>
 
 "folding
 set foldenable 
@@ -27,7 +32,7 @@ nnoremap <space> za
 " let g:Powerline_symbols = 'fancy'
 
 " python dictionary
- let g:pydiction_location = '~/.vim/bundle/pydiction/complete-dict'
+let g:pydiction_location = '~/.vim/bundle/pydiction/complete-dict'
 
 " supertab
 let g:SuperTabDefaultCompletionType = "context"
@@ -39,9 +44,33 @@ let g:user_emmet_leader_key='<C-Z>'
 " let g:vdebug_keymap = { 'step_over': '<S-Q>', 'step_into': '<S-W>', 'step_out': '<S-E>' }
 " let g:vdebug_options = {'break_on_open': 0}
 
-
 let iiCanHazVundle=1
 let vundle_readme=expand('~/.vim/bundle/vundle/README.md')
+
+""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
+"                                 Functions                                  "
+""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
+
+let g:background_opacity = 1
+
+function BackgroundToggle()
+    echo "execute"
+    if ! exists("g:background_opacity")
+        return
+    endif
+
+
+    if g:background_opacity
+        execute "highlight Normal ctermbg=none"
+        execute "highlight LineNr ctermbg=none"
+    else
+        execute "highlight Normal ctermbg=234"
+        execute "highlight LineNr ctermbg=232"
+    endif
+
+    let g:background_opacity = !g:background_opacity
+endfunction
+
 if !filereadable(vundle_readme)
   echo "Installing Vundle.."
   echo ""
