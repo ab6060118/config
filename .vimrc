@@ -1,4 +1,6 @@
-imap jj <ESC>
+""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
+"                               General Config                               "
+""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
 
 syntax on
 syntax enable
@@ -10,24 +12,48 @@ set tabstop=4
 set laststatus=2		" vim status bar
 set wildmenu
 set autoindent
+set hlsearch
 
+" Color scheme
 set t_Co=256
 colorscheme wombat256
 set background=light
-set hlsearch
 hi Comment ctermfg=red
 
-noremap   <leader>b    :call BackgroundToggle()<CR>
+filetype plugin on
 
-"folding
+" folding
 set foldenable 
 autocmd filetype python set foldmethod=indent
 autocmd filetype php set foldmethod=indent
 autocmd filetype html set foldmethod=indent
 set foldcolumn=0 
 set foldnestmax=2 
-nnoremap <space> za
 
+""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
+"                                Key Mapping                                 "
+""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
+
+" general key mapping 
+inoremap    jj          <ESC>
+nnoremap    <space>     za
+nnoremap    <leader>b   :call BackgroundToggle()<CR>
+
+" key mapping for adding comment to code
+autocmd filetype php    map <F7> :s/^/\/\//g<CR>
+autocmd filetype php    map <F8> :s/^\/\///g<CR>
+
+" key mapping for executing code
+" autocmd filetype cpp    map <F9> :w<CR>:make clean<CR>:make<CR>:!./a.out<CR>
+autocmd filetype c      map <F9> :w<CR>:!gcc -lm % && ./a.out<CR>
+autocmd filetype sh     map <F9> :w<CR>:!bash %<CR>
+autocmd filetype php    map <F9> :w<CR>:!php %<CR>
+autocmd filetype python map <F9> :w<CR>:!`which python3.4` %<CR>
+
+
+""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
+"                            Plugin Confiuration                             "
+""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
 
 " let g:Powerline_symbols = 'fancy'
 
@@ -44,7 +70,7 @@ let g:user_emmet_leader_key='<C-Z>'
 " let g:vdebug_keymap = { 'step_over': '<S-Q>', 'step_into': '<S-W>', 'step_out': '<S-E>' }
 " let g:vdebug_options = {'break_on_open': 0}
 
-let iiCanHazVundle=1
+let iCanHazVundle=1
 let vundle_readme=expand('~/.vim/bundle/vundle/README.md')
 
 """"""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
@@ -80,6 +106,10 @@ if !filereadable(vundle_readme)
 endif
 set rtp+=~/.vim/bundle/vundle/
 call vundle#rc()
+
+""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
+"                                  Plugins                                   "
+""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
 
 " let Vundle manage Vundle
 " required! 
