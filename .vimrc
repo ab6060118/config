@@ -13,6 +13,7 @@ set laststatus=2		" vim status bar
 set wildmenu
 set autoindent
 set hlsearch
+set backspace=indent,eol,start
 
 " Color scheme
 set t_Co=256
@@ -44,8 +45,8 @@ autocmd filetype php    map <F7> :s/^/\/\//g<CR>
 autocmd filetype php    map <F8> :s/^\/\///g<CR>
 
 " key mapping for executing code
-" autocmd filetype cpp    map <F9> :w<CR>:make clean<CR>:make<CR>:!./a.out<CR>
 autocmd filetype c      map <F9> :w<CR>:!gcc -lm % && ./a.out<CR>
+autocmd filetype cpp    map <F9> :w<CR>:make clean<CR>:make<CR>:!./a.out<CR>
 autocmd filetype sh     map <F9> :w<CR>:!bash %<CR>
 autocmd filetype php    map <F9> :w<CR>:!php %<CR>
 autocmd filetype python map <F9> :w<CR>:!`which python3.4` %<CR>
@@ -55,16 +56,16 @@ autocmd filetype python map <F9> :w<CR>:!`which python3.4` %<CR>
 "                            Plugin Confiuration                             "
 """"""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
 
-" let g:Powerline_symbols = 'fancy'
-
-" python dictionary
-let g:pydiction_location = '~/.vim/bundle/pydiction/complete-dict'
-
 " supertab
-let g:SuperTabDefaultCompletionType = "context"
+" let g:SuperTabDefaultCompletionType = 'context'
 
-" zencoding
-let g:user_emmet_leader_key='<C-Z>'
+" Jedi
+let g:jedi#completions_enabled = 0
+
+" emmet-vim
+let g:user_emmet_leader_key = '<C-Z>'
+
+" YouCompleteMe
 
 " vdebug
 " let g:vdebug_keymap = { 'step_over': '<S-Q>', 'step_into': '<S-W>', 'step_out': '<S-E>' }
@@ -72,6 +73,9 @@ let g:user_emmet_leader_key='<C-Z>'
 
 let iCanHazVundle=1
 let vundle_readme=expand('~/.vim/bundle/vundle/README.md')
+
+" IndentLine
+let g:indentLine_char = '¦'
 
 """"""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
 "                                 Functions                                  "
@@ -113,13 +117,12 @@ call vundle#rc()
 
 " let Vundle manage Vundle
 " required! 
-Bundle 'gmarik/vundle'
+Plugin 'gmarik/vundle'
 
 " git repo
-" Bundle 'Lokaltog/vim-powerline'
-" Bundle 'rkulla/pydiction'
-Bundle 'ervandew/supertab'
-" Bundle 'davidhalter/jedi-vim'
-" Bundle 'AutoComplPop'
-Bundle 'mattn/emmet-vim'
-" Bundle 'joonty/vdebug'
+" Plugin 'ervandew/supertab'
+Plugin 'davidhalter/jedi-vim'
+Plugin 'mattn/emmet-vim'
+Plugin 'Valloric/YouCompleteMe'
+" Plugin 'joonty/vdebug'
+Plugin 'Yggdroot/indentLine'
