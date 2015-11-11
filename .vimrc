@@ -5,15 +5,18 @@
 syntax on
 syntax enable
 
-set expandtab
-set shiftwidth=4
 set number
-set tabstop=4
-set laststatus=2		" vim status bar
+set expandtab
 set wildmenu
 set autoindent
 set hlsearch
 set backspace=indent,eol,start
+set shiftwidth=4
+set tabstop=4
+set laststatus=2		" vim status bar
+let @/ = ""
+
+filetype plugin on
 
 " Color scheme
 set t_Co=256
@@ -21,15 +24,18 @@ colorscheme wombat256
 set background=light
 hi Comment ctermfg=red
 
-filetype plugin on
 
-" folding
+""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
+"                                Folding                                     "
+""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
+
 set foldenable 
+set foldcolumn=0 
+set foldnestmax=5
+set foldlevelstart=6
 autocmd filetype python set foldmethod=indent
 autocmd filetype php set foldmethod=indent
 autocmd filetype html set foldmethod=indent
-set foldcolumn=0 
-set foldnestmax=2 
 
 """"""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
 "                                Key Mapping                                 "
@@ -49,8 +55,7 @@ autocmd filetype c      map <F9> :w<CR>:!gcc -lm % && ./a.out<CR>
 autocmd filetype cpp    map <F9> :w<CR>:make clean<CR>:make<CR>:!./a.out<CR>
 autocmd filetype sh     map <F9> :w<CR>:!bash %<CR>
 autocmd filetype php    map <F9> :w<CR>:!php %<CR>
-autocmd filetype python map <F9> :w<CR>:!`which python3.4` %<CR>
-
+autocmd filetype python map <F9> :w<CR>:!`which python2.7` %<CR>
 
 """"""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
 "                            Plugin Confiuration                             "
@@ -108,6 +113,7 @@ if !filereadable(vundle_readme)
   silent !git clone https://github.com/gmarik/vundle ~/.vim/bundle/vundle
   let iCanHazVundle=0
 endif
+
 set rtp+=~/.vim/bundle/vundle/
 call vundle#rc()
 
