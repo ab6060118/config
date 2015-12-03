@@ -71,6 +71,8 @@ let g:jedi#completions_enabled = 0
 let g:user_emmet_leader_key = '<C-Z>'
 
 " YouCompleteMe
+let g:ycm_global_ycm_extra_conf = '~/.vim/bundle/YouCompleteMe/third_party/ycmd/cpp/ycm/.ycm_extra_conf.py'
+let g:ycm_autoclose_preview_window_after_insertion = 1
 
 " vdebug
 " let g:vdebug_keymap = { 'step_over': '<S-Q>', 'step_into': '<S-W>', 'step_out': '<S-E>' }
@@ -126,9 +128,7 @@ call vundle#rc()
 Plugin 'gmarik/vundle'
 
 " git repo
-" Plugin 'ervandew/supertab'
-Plugin 'davidhalter/jedi-vim'
 Plugin 'mattn/emmet-vim'
 Plugin 'Valloric/YouCompleteMe'
-" Plugin 'joonty/vdebug'
 Plugin 'Yggdroot/indentLine'
+" Plugin 'joonty/vdebug'
