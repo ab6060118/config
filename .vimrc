@@ -5,12 +5,15 @@
 syntax on
 syntax enable
 
+set encoding=utf8
 set number
 set expandtab
 set wildmenu
 set autoindent
 set hlsearch
 set backspace=indent,eol,start
+set nocompatible
+set ignorecase
 set shiftwidth=4
 set tabstop=4
 set laststatus=2		" vim status bar
@@ -24,6 +27,7 @@ colorscheme wombat256
 set background=light
 hi Comment ctermfg=red
 
+autocmd filetype php set omnifunc=phpcomplete#CompletePHP
 
 """"""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
 "                                Folding                                     "
@@ -33,6 +37,7 @@ set foldenable
 set foldcolumn=0 
 set foldnestmax=5
 set foldlevelstart=6
+
 autocmd filetype python set foldmethod=indent
 autocmd filetype php set foldmethod=indent
 autocmd filetype html set foldmethod=indent
@@ -57,33 +62,67 @@ autocmd filetype sh     map <F9> :w<CR>:!bash %<CR>
 autocmd filetype php    map <F9> :w<CR>:!php %<CR>
 autocmd filetype python map <F9> :w<CR>:!`which python2.7` %<CR>
 
+" add filetype for Utilsnip
+autocmd FileType javascript :UltiSnipsAddFiletypes javascript
+autocmd FileType php :UltiSnipsAddFiletypes php
+autocmd FileType html :UltiSnipsAddFiletypes html
+autocmd FileType css :UltiSnipsAddFiletypes css
+autocmd FileType python :UltiSnipsAddFiletypes python
+
 """"""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
 "                            Plugin Confiuration                             "
 """"""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
 
-" supertab
-" let g:SuperTabDefaultCompletionType = 'context'
-
-" Jedi
-let g:jedi#completions_enabled = 0
+" Airline
+let g:airline#extensions#tabline#enabled        = 1
+let g:airline#extensions#tabline#fnamemod       = ':t'
+let g:airline#extensions#hunks#enabled          = 1
+let g:airline#extensions#branch#enabled         = 1
+let g:airline_powerline_fonts                   = 1
+let g:airline#extensions#tabline#left_sep       = ' '
+let g:airline#extensions#tabline#left_alt_sep   = '|'
 
 " emmet-vim
 let g:user_emmet_leader_key = '<C-Z>'
 
 " YouCompleteMe
 let g:ycm_global_ycm_extra_conf = '~/.vim/bundle/YouCompleteMe/third_party/ycmd/cpp/ycm/.ycm_extra_conf.py'
-let g:ycm_autoclose_preview_window_after_insertion = 1
+"let g:ycm_autoclose_preview_window_after_insertion = 1
+"let g:ycm_use_ultisnips_completer                  = 1
+let g:ycm_key_list_select_completion = ['<C-n>', '<Down>']
+let g:ycm_key_list_previous_completion = ['<C-p>', '<Up>']
+let g:SuperTabDefaultCompletionType = '<C-n>'
 
 " vdebug
 " let g:vdebug_keymap = { 'step_over': '<S-Q>', 'step_into': '<S-W>', 'step_out': '<S-E>' }
 " let g:vdebug_options = {'break_on_open': 0}
 
-let iCanHazVundle=1
-let vundle_readme=expand('~/.vim/bundle/vundle/README.md')
-
 " IndentLine
 let g:indentLine_char = '¦'
 
+" Syntastic
+set statusline+=%#warningmsg#
+set statusline+=%{SyntasticStatuslineFlag()}
+set statusline+=%*
+let g:syntastic_always_populate_loc_list = 1
+let g:syntastic_auto_loc_list            = 1
+let g:syntastic_check_on_open            = 1
+let g:syntastic_check_on_wq              = 0
+let g:syntastic_loc_list_height          = 5
+let g:syntastic_python_checkers          = ['pylint']
+let g:syntastic_html_checkers            = ['tidy']
+let g:syntastic_javascript_checkers      = ['jshint']
+let g:syntastic_php_checkers             = ['php', 'phpcs', 'phpmd']
+
+" GitGutter
+let g:gitgutter_realtime         = 1
+let g:gitgutter_eager            = 1
+
+" Ultisnips
+"let g:UltiSnipsExpandTrigger       = "<C-I>"
+let g:UltiSnipsExpandTrigger = "<tab>"
+let g:UltiSnipsJumpForwardTrigger = "<tab>"
+let g:UltiSnipsJumpBackwardTrigger = "<s-tab>"
 """"""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
 "                                 Functions                                  "
 """"""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
@@ -108,6 +147,12 @@ function BackgroundToggle()
     let g:background_opacity = !g:background_opacity
 endfunction
 
+""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
+"                                   Others                                   "
+""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
+
+let iCanHazVundle =1
+let vundle_readme = expand('~/.vim/bundle/vundle/README.md')
 if !filereadable(vundle_readme)
   echo "Installing Vundle.."
   echo ""
@@ -128,7 +173,15 @@ call vundle#rc()
 Plugin 'gmarik/vundle'
 
 " git repo
+Plugin 'bling/vim-airline'
 Plugin 'mattn/emmet-vim'
 Plugin 'Valloric/YouCompleteMe'
 Plugin 'Yggdroot/indentLine'
+Plugin 'shawncplus/phpcomplete.vim'
+Plugin 'airblade/vim-gitgutter'
+Plugin 'scrooloose/syntastic'
+
+" Snippet
+Plugin 'SirVer/ultisnips'
+Plugin 'honza/vim-snippets'
 " Plugin 'joonty/vdebug'
