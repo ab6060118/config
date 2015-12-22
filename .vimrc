@@ -62,7 +62,7 @@ autocmd filetype sh     map <F9> :w<CR>:!bash %<CR>
 autocmd filetype php    map <F9> :w<CR>:!php %<CR>
 autocmd filetype python map <F9> :w<CR>:!`which python2.7` %<CR>
 
-" add filetype for Utilsnip
+" add filetype for Ultisnip
 autocmd FileType javascript :UltiSnipsAddFiletypes javascript
 autocmd FileType php :UltiSnipsAddFiletypes php
 autocmd FileType html :UltiSnipsAddFiletypes html
