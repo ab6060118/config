@@ -1,6 +1,5 @@
-[user]
-	email = ab6060118@gmail.com
-	name = Dauba
-[color]
-	status = auto
-	diff = true
+[alias]
+	st = status
+	co = checkout
+	br = branch
+    df = diff
