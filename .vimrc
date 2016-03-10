@@ -56,7 +56,7 @@ autocmd filetype php    map <F7> :s/^/\/\//g<CR>
 autocmd filetype php    map <F8> :s/^\/\///g<CR>
 
 " key mapping for executing code
-autocmd filetype c      map <F9> :w<CR>:!gcc -lm % && ./a.out<CR>
+autocmd filetype c      map <F9> :w<CR>:!gcc % -lm && ./a.out<CR>
 autocmd filetype cpp    map <F9> :w<CR>:make clean<CR>:make<CR>:!./a.out<CR>
 autocmd filetype sh     map <F9> :w<CR>:!bash %<CR>
 autocmd filetype php    map <F9> :w<CR>:!php %<CR>
