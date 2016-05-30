@@ -12,20 +12,20 @@ set autoindent
 set hlsearch
 set nocompatible
 set ignorecase
-set encoding   = utf8
-set backspace  = indent,eol,start
-set shiftwidth = 4
-set tabstop    = 4
-set laststatus = 2		" vim status bar
-let @/         = ""
+set encoding=utf8
+set backspace=indent,eol,start
+set shiftwidth=4
+set tabstop=4
+set laststatus=2		"vimstatusbar
+let @/=""
 
 filetype plugin on
 
 " Color scheme
 colorscheme wombat256
-set t_Co           = 256
-set background     = light
-hi Comment ctermfg = red
+set t_Co=256
+set background=light
+hi Comment ctermfg=red
 
 autocmd filetype php set omnifunc = phpcomplete#CompletePHP
 
