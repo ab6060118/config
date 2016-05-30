@@ -5,29 +5,29 @@
 syntax on
 syntax enable
 
-set encoding=utf8
 set number
 set expandtab
 set wildmenu
 set autoindent
 set hlsearch
-set backspace=indent,eol,start
 set nocompatible
 set ignorecase
-set shiftwidth=4
-set tabstop=4
-set laststatus=2		" vim status bar
-let @/ = ""
+set encoding   = utf8
+set backspace  = indent,eol,start
+set shiftwidth = 4
+set tabstop    = 4
+set laststatus = 2		" vim status bar
+let @/         = ""
 
 filetype plugin on
 
 " Color scheme
-set t_Co=256
 colorscheme wombat256
-set background=light
-hi Comment ctermfg=red
+set t_Co           = 256
+set background     = light
+hi Comment ctermfg = red
 
-autocmd filetype php set omnifunc=phpcomplete#CompletePHP
+autocmd filetype php set omnifunc = phpcomplete#CompletePHP
 
 """"""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
 "                                Folding                                     "
@@ -38,9 +38,9 @@ set foldcolumn=0
 set foldnestmax=5
 set foldlevelstart=6
 
-autocmd filetype python set foldmethod=indent
-autocmd filetype php set foldmethod=indent
-autocmd filetype html set foldmethod=indent
+autocmd filetype python set foldmethod = indent
+autocmd filetype php set foldmethod    = indent
+autocmd filetype html set foldmethod   = indent
 
 """"""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
 "                                Key Mapping                                 "
@@ -63,11 +63,17 @@ autocmd filetype php    map <F9> :w<CR>:!php %<CR>
 autocmd filetype python map <F9> :w<CR>:!`which python2.7` %<CR>
 
 " add filetype for Ultisnip
-autocmd FileType javascript :UltiSnipsAddFiletypes javascript
 autocmd FileType php :UltiSnipsAddFiletypes php
-autocmd FileType html :UltiSnipsAddFiletypes html
-autocmd FileType css :UltiSnipsAddFiletypes css
 autocmd FileType python :UltiSnipsAddFiletypes python
+
+" Mapping for swap line cursor moving
+nnoremap   k            gk
+nnoremap   gk           k
+nnoremap   j            gj
+nnoremap   gj           j
+
+" set different indent style
+autocmd FileType javascript,html,css,less set tabstop=2 softtabstop=2 shiftwidth=2
 
 """"""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
 "                            Plugin Confiuration                             "
@@ -115,14 +121,26 @@ let g:syntastic_javascript_checkers      = ['jshint']
 let g:syntastic_php_checkers             = ['php', 'phpcs', 'phpmd']
 
 " GitGutter
-let g:gitgutter_realtime         = 1
-let g:gitgutter_eager            = 1
+let g:gitgutter_realtime = 1
+let g:gitgutter_eager    = 1
 
 " Ultisnips
-let g:UltiSnipsExpandTrigger        = "<tab>"
-let g:UltiSnipsJumpForwardTrigger   = "<tab>"
-let g:UltiSnipsJumpBackwardTrigger  = "<s-tab>"
-let g:snips_author                  = "Dauba"
+let g:UltiSnipsExpandTrigger       = "<tab>"
+let g:UltiSnipsJumpForwardTrigger  = "<tab>"
+let g:UltiSnipsJumpBackwardTrigger = "<s-tab>"
+let g:snips_author                 = "Dauba"
+
+" NerdCommenter
+" Add a space before comment
+let g:NERDSpaceDelims=1
+
+" Easy align
+vmap <Leader>a <Plug>(EasyAlign)
+nmap <Leader>a <Plug>(EasyAlign)
+if !exists('g:easy_align_delimiters')
+  let g:easy_align_delimiters = {}
+endif
+let g:easy_align_delimiters['#'] = { 'pattern': '#', 'ignore_groups': ['String']  }
 """"""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
 "                                 Functions                                  "
 """"""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
@@ -180,6 +198,8 @@ Plugin 'Yggdroot/indentLine'
 Plugin 'shawncplus/phpcomplete.vim'
 Plugin 'airblade/vim-gitgutter'
 Plugin 'scrooloose/syntastic'
+Plugin 'scrooloose/nerdcommenter'
+Plugin 'junegunn/vim-easy-align'
 
 " Snippet
 Plugin 'SirVer/ultisnips'
