@@ -20,14 +20,13 @@ set laststatus=2		"vimstatusbar
 let @/=""
 
 filetype plugin on
+filetype indent on
 
 " Color scheme
 colorscheme wombat256
 set t_Co=256
 set background=light
 hi Comment ctermfg=red
-
-autocmd filetype php set omnifunc = phpcomplete#CompletePHP
 
 """"""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
 "                                Folding                                     "
@@ -38,9 +37,9 @@ set foldcolumn=0
 set foldnestmax=5
 set foldlevelstart=6
 
-autocmd filetype python set foldmethod = indent
-autocmd filetype php set foldmethod    = indent
-autocmd filetype html set foldmethod   = indent
+autocmd filetype python set foldmethod=indent
+autocmd filetype html set foldmethod=indent
+autocmd filetype php set foldmethod=indent
 
 """"""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
 "                                Key Mapping                                 "
@@ -50,10 +49,6 @@ autocmd filetype html set foldmethod   = indent
 inoremap    jj          <ESC>
 nnoremap    <space>     za
 nnoremap    <leader>b   :call BackgroundToggle()<CR>
-
-" key mapping for adding comment to code
-autocmd filetype php    map <F7> :s/^/\/\//g<CR>
-autocmd filetype php    map <F8> :s/^\/\///g<CR>
 
 " key mapping for executing code
 autocmd filetype c      map <F9> :w<CR>:!gcc % -lm && ./a.out<CR>
@@ -72,8 +67,13 @@ nnoremap   gk           k
 nnoremap   j            gj
 nnoremap   gj           j
 
+" set filetypes
+autocmd BufNewFile,BufRead *.js set filetype=javascript
+
 " set different indent style
 autocmd FileType javascript,html,css,less set tabstop=2 softtabstop=2 shiftwidth=2
+
+autocmd FileType php setl omnifunc=phpcomplete#CompletePHP
 
 """"""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
 "                            Plugin Confiuration                             "
@@ -94,10 +94,18 @@ let g:user_emmet_leader_key = '<C-Z>'
 " YouCompleteMe
 let g:ycm_global_ycm_extra_conf = '~/.vim/bundle/YouCompleteMe/third_party/ycmd/cpp/ycm/.ycm_extra_conf.py'
 let g:ycm_autoclose_preview_window_after_insertion = 1
-" let g:ycm_use_ultisnips_completer                  = 1
+let g:ycm_use_ultisnips_completer                  = 1
 let g:ycm_key_list_select_completion = ['<C-n>', '<Down>']
 let g:ycm_key_list_previous_completion = ['<C-p>', '<Up>']
-let g:SuperTabDefaultCompletionType = '<C-n>'
+let g:ycm_filetype_blacklist                        = {
+  \ 'tagbar' : 1,
+  \ 'qf' : 1,
+  \ 'notes' : 1,
+  \ 'unite' : 1,
+  \ 'text' : 1,
+  \ 'vimwiki' : 1,
+  \ 'gitcommit' : 1,
+  \}
 
 " vdebug
 " let g:vdebug_keymap = { 'step_over': '<S-Q>', 'step_into': '<S-W>', 'step_out': '<S-E>' }
@@ -124,10 +132,15 @@ let g:syntastic_php_checkers             = ['php', 'phpcs', 'phpmd']
 let g:gitgutter_realtime = 1
 let g:gitgutter_eager    = 1
 
+" Ternjs
+let tern#is_show_argument_hints_enabled = 1
+let g:tern_show_argument_hints   = 'on_move'
+let g:tern_show_signature_in_pum = 1
+
 " Ultisnips
-let g:UltiSnipsExpandTrigger       = "<tab>"
-let g:UltiSnipsJumpForwardTrigger  = "<tab>"
-let g:UltiSnipsJumpBackwardTrigger = "<s-tab>"
+let g:UltiSnipsExpandTrigger       = "<Tab>"
+let g:UltiSnipsJumpForwardTrigger  = "<C-n>"
+let g:UltiSnipsJumpBackwardTrigger = "<C-p>"
 let g:snips_author                 = "Dauba"
 
 " NerdCommenter
@@ -141,6 +154,10 @@ if !exists('g:easy_align_delimiters')
   let g:easy_align_delimiters = {}
 endif
 let g:easy_align_delimiters['#'] = { 'pattern': '#', 'ignore_groups': ['String']  }
+
+" phpcomplete
+" let g:phpcomplete_complete_for_unknown_classes = 1
+let g:phpcomplete_parse_docblock_comments = 1
 """"""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
 "                                 Functions                                  "
 """"""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
@@ -193,15 +210,20 @@ Plugin 'gmarik/vundle'
 " git repo
 Plugin 'bling/vim-airline'
 Plugin 'mattn/emmet-vim'
-Plugin 'Valloric/YouCompleteMe'
 Plugin 'Yggdroot/indentLine'
-Plugin 'shawncplus/phpcomplete.vim'
 Plugin 'airblade/vim-gitgutter'
 Plugin 'scrooloose/syntastic'
 Plugin 'scrooloose/nerdcommenter'
 Plugin 'junegunn/vim-easy-align'
+Plugin 'Raimondi/delimitMate'
+
+" AutoComplete
+Plugin 'Valloric/YouCompleteMe'
+Plugin 'marijnh/tern_for_vim'
+Plugin 'shawncplus/phpcomplete.vim'
 
 " Snippet
 Plugin 'SirVer/ultisnips'
 Plugin 'honza/vim-snippets'
+
 " Plugin 'joonty/vdebug'
