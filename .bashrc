@@ -72,3 +72,8 @@ export EDITOR='vi'
 # screen -rd
 # tmux detach
 # tmux attach
+
+PATH=$PATH:/opt/node/bin
+NODE_PATH=/opt/node/lib/node_modules
+
+export NODE_PATH

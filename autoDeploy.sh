@@ -8,6 +8,8 @@ cp -r ./.vim ~
 cp ./.gitconfig ~
 cp ./.git-prompt.sh ~
 
+source ~/.bashrc
+
 vim -c PluginInstall -c qa
 
 echo '##########################'
