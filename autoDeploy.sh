@@ -18,6 +18,10 @@ echo '##########################'
 
 ./installYCM.sh
 
+echo '#############################'
+echo '#  Starting install nodejs  #'
+echo '#############################'
+
 ./installJSCompleter.sh
 
 
