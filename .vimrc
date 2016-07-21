@@ -139,8 +139,8 @@ let g:tern_show_signature_in_pum = 1
 
 " Ultisnips
 let g:UltiSnipsExpandTrigger       = "<Tab>"
-let g:UltiSnipsJumpForwardTrigger  = "<C-n>"
-let g:UltiSnipsJumpBackwardTrigger = "<C-p>"
+let g:UltiSnipsJumpForwardTrigger  = "<Tab>"
+let g:UltiSnipsJumpBackwardTrigger = "<S-Tab>"
 let g:snips_author                 = "Dauba"
 
 " NerdCommenter
