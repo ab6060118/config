@@ -75,6 +75,9 @@ autocmd FileType javascript,html,css,less set tabstop=2 softtabstop=2 shiftwidth
 
 autocmd FileType php setl omnifunc=phpcomplete#CompletePHP
 
+" ctag
+nnoremap <C-]> <C-w><C-]><C-w>T
+
 """"""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
 "                            Plugin Confiuration                             "
 """"""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
