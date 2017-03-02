@@ -17,16 +17,3 @@ echo '#  Starting install YCM  #'
 echo '##########################'
 
 ./installYCM.sh
-
-echo '#############################'
-echo '#  Starting install nodejs  #'
-echo '#############################'
-
-./installJSCompleter.sh
-
-
-echo '############################'
-echo '#  Starting install ctags  #'
-echo '############################'
-
-sudo apt-get install exuberant-ctags -y
