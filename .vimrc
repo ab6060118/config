@@ -117,6 +117,9 @@ let g:ycm_filetype_blacklist                        = {
 " IndentLine
 let g:indentLine_char = '¦'
 
+" MultipleCursors
+let g:multi_cursor_exit_from_insert_mode = 0
+
 " Syntastic
 set statusline+=%#warningmsg#
 set statusline+=%{SyntasticStatuslineFlag()}
@@ -219,6 +222,7 @@ Plugin 'scrooloose/syntastic'
 Plugin 'scrooloose/nerdcommenter'
 Plugin 'junegunn/vim-easy-align'
 Plugin 'Raimondi/delimitMate'
+Plugin 'terryma/vim-multiple-cursors'
 
 " AutoComplete
 Plugin 'Valloric/YouCompleteMe'
