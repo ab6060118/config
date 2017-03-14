@@ -1,14 +1,16 @@
 #!/bin/bash
 
+./installZsh.sh
+
 cp ./.vimrc ~
 cp ./.tmux.conf ~
-cp ./.bashrc ~
 cp ./.inputrc ~
 cp -r ./.vim ~
 cp ./.gitconfig ~
-cp ./.git-prompt.sh ~
+cp ./.zshrc ~
+cp ./daubakao.zsh-theme ~/.oh-my-zsh/theme
 
-source ~/.bashrc
+chsh $USERNAME -s /usr/bin/zsh
 
 vim -c PluginInstall -c qa
 
