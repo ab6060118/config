@@ -8,9 +8,7 @@ cp ./.inputrc ~
 cp -r ./.vim ~
 cp ./.gitconfig ~
 cp ./.zshrc ~
-cp ./daubakao.zsh-theme ~/.oh-my-zsh/theme
-
-chsh $USERNAME -s /usr/bin/zsh
+cp ./daubakao.zsh-themes ~/.oh-my-zsh/theme
 
 vim -c PluginInstall -c qa
 
@@ -19,3 +17,5 @@ echo '#  Starting install YCM  #'
 echo '##########################'
 
 ./installYCM.sh
+
+chsh $USERNAME -s /usr/bin/zsh
