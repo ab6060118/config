@@ -8,7 +8,7 @@ cp ./.inputrc ~
 cp -r ./.vim ~
 cp ./.gitconfig ~
 cp ./.zshrc ~
-cp ./daubakao.zsh-themes ~/.oh-my-zsh/theme
+cp ./daubakao.zsh-theme ~/.oh-my-zsh/themes
 
 vim -c PluginInstall -c qa
 
