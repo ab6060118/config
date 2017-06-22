@@ -164,6 +164,12 @@ let g:easy_align_delimiters['#'] = { 'pattern': '#', 'ignore_groups': ['String']
 " phpcomplete
 " let g:phpcomplete_complete_for_unknown_classes = 1
 let g:phpcomplete_parse_docblock_comments = 1
+
+" vim-jsx
+let g:jsx_ext_required = 1
+
+" vim-javascript
+let g:javascript_plugin_jsdoc = 1
 """"""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
 "                                 Functions                                  "
 """"""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
@@ -234,3 +240,6 @@ Plugin 'SirVer/ultisnips'
 Plugin 'honza/vim-snippets'
 
 " Plugin 'joonty/vdebug'
+
+Plugin 'pangloss/vim-javascript'
+Plugin 'mxw/vim-jsx'
