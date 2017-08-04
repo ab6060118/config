@@ -5,6 +5,7 @@
 syntax on
 syntax enable
 
+set hidden
 set number
 set expandtab
 set wildmenu
@@ -38,7 +39,7 @@ set foldnestmax=5
 set foldlevelstart=6
 
 autocmd filetype python set foldmethod=indent
-autocmd filetype html set foldmethod=indent
+autocmd filetype javascript set foldmethod=syntax
 autocmd filetype php set foldmethod=indent
 
 """"""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
@@ -49,6 +50,15 @@ autocmd filetype php set foldmethod=indent
 inoremap    jj          <ESC>
 nnoremap    <space>     za
 nnoremap    <leader>b   :call BackgroundToggle()<CR>
+nnoremap   <leader>h   <C-w>h
+nnoremap   <leader>j   <C-w>j
+nnoremap   <leader>k   <C-w>k
+nnoremap   <leader>l   <C-w>l
+nnoremap   <leader>t    :badd 
+nnoremap   <S-Q>        :bprev<CR>
+nnoremap   <S-W>        :bnext<CR>
+nnoremap   <leader>q    :bdelete<CR>
+nnoremap   <leader>s    :w<CR>
 
 " key mapping for executing code
 autocmd filetype c      map <F9> :w<CR>:!gcc % -lm && ./a.out<CR>
@@ -69,6 +79,7 @@ nnoremap   gj           j
 
 " set filetypes
 autocmd BufNewFile,BufRead *.js set filetype=javascript
+autocmd BufNewFile,BufRead *.tsx set filetype=javascript
 
 " set different indent style
 autocmd FileType javascript,html,css,less set tabstop=2 softtabstop=2 shiftwidth=2
@@ -88,8 +99,6 @@ let g:airline#extensions#tabline#fnamemod       = ':t'
 let g:airline#extensions#hunks#enabled          = 1
 let g:airline#extensions#branch#enabled         = 1
 let g:airline_powerline_fonts                   = 1
-let g:airline#extensions#tabline#left_sep       = ' '
-let g:airline#extensions#tabline#left_alt_sep   = '|'
 
 " emmet-vim
 let g:user_emmet_leader_key = '<C-Z>'
@@ -166,10 +175,13 @@ let g:easy_align_delimiters['#'] = { 'pattern': '#', 'ignore_groups': ['String']
 let g:phpcomplete_parse_docblock_comments = 1
 
 " vim-jsx
-let g:jsx_ext_required = 1
+let g:jsx_ext_required = 0
 
 " vim-javascript
 let g:javascript_plugin_jsdoc = 1
+
+" typescript-vim
+let g:typescript_indent_disable = 1
 """"""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
 "                                 Functions                                  "
 """"""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
@@ -224,7 +236,7 @@ Plugin 'bling/vim-airline'
 Plugin 'mattn/emmet-vim'
 Plugin 'Yggdroot/indentLine'
 Plugin 'airblade/vim-gitgutter'
-Plugin 'scrooloose/syntastic'
+" Plugin 'scrooloose/syntastic'
 Plugin 'scrooloose/nerdcommenter'
 Plugin 'junegunn/vim-easy-align'
 Plugin 'Raimondi/delimitMate'
@@ -243,3 +255,5 @@ Plugin 'honza/vim-snippets'
 
 Plugin 'pangloss/vim-javascript'
 Plugin 'mxw/vim-jsx'
+Plugin 'leafgarland/typescript-vim'
+Plugin 'ianks/vim-tsx'
