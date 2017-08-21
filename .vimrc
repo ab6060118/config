@@ -62,6 +62,7 @@ nnoremap <leader>s :w<CR>
 nnoremap <leader>n :sp<CR>
 nnoremap <leader>N :vsp<CR>
 nnoremap <F12>     :NERDTreeToggle<CR>
+nnoremap <F2>      :set invpaste paste?<CR>
 
 " key mapping for executing code
 autocmd filetype c      map <F9> :w<CR>:!gcc % -lm && ./a.out<CR>
@@ -248,6 +249,7 @@ Plugin 'scrooloose/nerdcommenter'
 Plugin 'junegunn/vim-easy-align'
 Plugin 'Raimondi/delimitMate'
 Plugin 'terryma/vim-multiple-cursors'
+Plugin 'isRuslan/vim-es6'
 
 " AutoComplete
 Plugin 'Valloric/YouCompleteMe'
