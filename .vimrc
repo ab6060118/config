@@ -40,6 +40,7 @@ set foldlevelstart=6
 
 autocmd filetype python set foldmethod=indent
 autocmd filetype javascript set foldmethod=syntax
+autocmd filetype typescript set foldmethod=syntax
 autocmd filetype php set foldmethod=indent
 
 """"""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
@@ -83,10 +84,11 @@ nnoremap   gj           j
 
 " set filetypes
 autocmd BufNewFile,BufRead *.js set filetype=javascript
-autocmd BufNewFile,BufRead *.tsx set filetype=javascript
+autocmd BufNewFile,BufRead *.tsx set filetype=typescript
+autocmd BufNewFile,BufRead *.ts set filetype=typescript
 
 " set different indent style
-autocmd FileType javascript,html,css,less set tabstop=2 softtabstop=2 shiftwidth=2
+autocmd FileType javascript,html,css,less,typescript set tabstop=2 softtabstop=2 shiftwidth=2
 
 autocmd FileType php setl omnifunc=phpcomplete#CompletePHP
 
@@ -188,7 +190,9 @@ let g:jsx_ext_required = 0
 let g:javascript_plugin_jsdoc = 1
 
 " typescript-vim
-let g:typescript_indent_disable = 1
+" let g:typescript_indent_disable = 1
+let g:typescript_compiler_binary = 'tsc'
+
 """"""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
 "                                 Functions                                  "
 """"""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
