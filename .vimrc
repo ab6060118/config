@@ -179,20 +179,12 @@ if !exists('g:easy_align_delimiters')
 endif
 let g:easy_align_delimiters['#'] = { 'pattern': '#', 'ignore_groups': ['String']  }
 
-" phpcomplete
-" let g:phpcomplete_complete_for_unknown_classes = 1
-let g:phpcomplete_parse_docblock_comments = 1
-
-" vim-jsx
-let g:jsx_ext_required = 0
-
 " vim-javascript
 let g:javascript_plugin_jsdoc = 1
 
 " typescript-vim
 " let g:typescript_indent_disable = 1
 let g:typescript_compiler_binary = 'tsc'
-
 """"""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
 "                                 Functions                                  "
 """"""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
@@ -251,14 +243,13 @@ Plugin 'airblade/vim-gitgutter'
 Plugin 'scrooloose/nerdtree'
 Plugin 'scrooloose/nerdcommenter'
 Plugin 'junegunn/vim-easy-align'
-Plugin 'Raimondi/delimitMate'
 Plugin 'terryma/vim-multiple-cursors'
-Plugin 'isRuslan/vim-es6'
+Plugin 'jiangmiao/auto-pairs'
 
 " AutoComplete
 Plugin 'Valloric/YouCompleteMe'
 Plugin 'marijnh/tern_for_vim'
-Plugin 'shawncplus/phpcomplete.vim'
+" Plugin 'shawncplus/phpcomplete.vim'
 
 " Snippet
 Plugin 'SirVer/ultisnips'
@@ -267,6 +258,8 @@ Plugin 'honza/vim-snippets'
 " Plugin 'joonty/vdebug'
 
 Plugin 'pangloss/vim-javascript'
-Plugin 'mxw/vim-jsx'
 Plugin 'leafgarland/typescript-vim'
-Plugin 'ianks/vim-tsx'
+
+" Typescript
+Plugin 'Shougo/vimproc.vim'
+Plugin 'Quramy/tsuquyomi'
