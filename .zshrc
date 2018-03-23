@@ -95,6 +95,7 @@ alias rm='rm -i'
 
 # Editor
 export EDITOR='vim'
+export PATH=$PATH:/opt/node/bin
 
 # For tmux 
 DISABLE_AUTO_TITLE=true
