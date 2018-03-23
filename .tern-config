@@ -4,8 +4,9 @@
         "es_modules": {}
     },
     "libs": [
+        "browser",
         "ecma5",
         "ecma6"
     ],
-    "ecmaVersion": 6,
+    "ecmaVersion": 6
 }
