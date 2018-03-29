@@ -12,6 +12,9 @@ ln -s $PWD/daubakao.zsh-theme $HOME/.oh-my-zsh/themes
 
 vim -c PluginInstall -c qa
 
+cd ~/.vim/bundle/vimproc.vim && make
+cd -
+
 echo '##########################'
 echo '#  Starting install YCM  #'
 echo '##########################'
