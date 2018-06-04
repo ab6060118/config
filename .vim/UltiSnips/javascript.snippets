@@ -1,0 +1,38 @@
+snippet rrc "React Redux Class Component" b
+import * as React from 'react';
+import { connect } from 'react-redux';
+
+class ${1:`!v expand('%:t:r')`}Container extends React.PureComponent<any,any> {
+  render() {
+      return (
+          <div></div>
+      )
+  }
+}
+
+const mapStateToProps = (state:any, ownProps:any) => ({})
+
+const mapDispatchToProps = (dispatch:Function) => ({})
+
+export default connect(mapStateToProps, mapDispatchToProps)($1Container);
+endsnippet
+
+snippet rc "React Class Component" b
+import * as React from 'react';
+
+interface ${2:$1Props} {}
+
+interface ${3:$1State} {}
+
+export default class ${1:`!v expand('%:t:r')`} extends React.PureComponent<$2,$3> {
+  render() {
+    return (
+      <div></div>
+    )
+  }
+}
+endsnippet
+
+snippet cn "className"
+className="$1"
+endsnippet

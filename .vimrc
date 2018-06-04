@@ -72,10 +72,6 @@ autocmd filetype sh     map <F9> :w<CR>:!bash %<CR>
 autocmd filetype php    map <F9> :w<CR>:!php %<CR>
 autocmd filetype python map <F9> :w<CR>:!`which python2.7` %<CR>
 
-" add filetype for Ultisnip
-autocmd FileType php :UltiSnipsAddFiletypes php
-autocmd FileType python :UltiSnipsAddFiletypes python
-
 " Mapping for swap line cursor moving
 nnoremap   k            gk
 nnoremap   gk           k
@@ -88,7 +84,7 @@ autocmd BufNewFile,BufRead *.tsx set filetype=typescript
 autocmd BufNewFile,BufRead *.ts set filetype=typescript
 
 " set different indent style
-autocmd FileType javascript,html,css,less,typescript set tabstop=2 softtabstop=2 shiftwidth=2
+autocmd FileType javascript,html,css,less,scss,typescript set tabstop=2 softtabstop=2 shiftwidth=2
 
 autocmd FileType php setl omnifunc=phpcomplete#CompletePHP
 
@@ -162,10 +158,10 @@ let g:tern_show_signature_in_pum = 1
 let g:UltiSnipsExpandTrigger       = "<Tab>"
 let g:UltiSnipsJumpForwardTrigger  = "<Tab>"
 let g:UltiSnipsJumpBackwardTrigger = "<S-Tab>"
-let g:snips_author                 = "Dauba"
+let g:snips_author                 = "DaubaKao"
 
 " NerdTree
-let NERDTreeQuitOnOpen=1
+let NERDTreeQuitOnOpen=0
 
 " NerdCommenter
 " Add a space before comment
@@ -185,6 +181,17 @@ let g:javascript_plugin_jsdoc = 1
 " typescript-vim
 " let g:typescript_indent_disable = 1
 let g:typescript_compiler_binary = 'tsc'
+
+" CtrlP
+let g:ctrlp_prompt_mappings = {
+    \ 'PrtSelectMove("j")':   ['<c-n>', '<down>', '<s-tab>'],
+    \ 'PrtSelectMove("k")':   ['<c-p>', '<up>', '<tab>'],
+    \ 'ToggleFocus()':        [],
+    \ 'PrtHistory(-1)':       [],
+    \ 'PrtHistory(1)':        [],
+\ }
+let g:ctrlp_by_filename = 1
+
 """"""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
 "                                 Functions                                  "
 """"""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
@@ -263,3 +270,6 @@ Plugin 'leafgarland/typescript-vim'
 " Typescript
 Plugin 'Shougo/vimproc.vim'
 Plugin 'Quramy/tsuquyomi'
+
+" Find file
+Plugin 'kien/ctrlp.vim'
