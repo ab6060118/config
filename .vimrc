@@ -190,7 +190,7 @@ let g:ctrlp_prompt_mappings = {
     \ 'PrtHistory(-1)':       [],
     \ 'PrtHistory(1)':        [],
 \ }
-let g:ctrlp_by_filename = 1
+let g:ctrlp_by_filename = 0
 
 """"""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
 "                                 Functions                                  "
@@ -263,13 +263,13 @@ Plugin 'SirVer/ultisnips'
 Plugin 'honza/vim-snippets'
 
 " Plugin 'joonty/vdebug'
-
 Plugin 'pangloss/vim-javascript'
-Plugin 'leafgarland/typescript-vim'
 
 " Typescript
+Plugin 'leafgarland/typescript-vim'
 Plugin 'Shougo/vimproc.vim'
 Plugin 'Quramy/tsuquyomi'
+Plugin 'maxmellon/vim-jsx-pretty'
 
 " Find file
 Plugin 'kien/ctrlp.vim'
