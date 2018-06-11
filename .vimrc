@@ -55,7 +55,7 @@ nnoremap <leader>h <C-w>h
 nnoremap <leader>j <C-w>j
 nnoremap <leader>k <C-w>k
 nnoremap <leader>l <C-w>l
-nnoremap <leader>t :badd 
+nnoremap <leader>t :badd
 nnoremap <S-Q>     :bprev<CR>
 nnoremap <S-W>     :bnext<CR>
 nnoremap <leader>q :bdelete<CR>
@@ -63,7 +63,8 @@ nnoremap <leader>s :w<CR>
 nnoremap <leader>n :sp<CR>
 nnoremap <leader>N :vsp<CR>
 nnoremap <F12>     :NERDTreeToggle<CR>
-nnoremap <F2>      :set invpaste paste?<CR>
+nnoremap <F2>      :set  invpaste paste?<CR>
+nnoremap <leader>z :TsuImport<CR>
 
 " key mapping for executing code
 autocmd filetype c      map <F9> :w<CR>:!gcc % -lm && ./a.out<CR>

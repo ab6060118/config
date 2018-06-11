@@ -4,9 +4,9 @@ import { connect } from 'react-redux';
 
 class ${1:`!v expand('%:t:r')`}Container extends React.PureComponent<any,any> {
   render() {
-      return (
-          <div></div>
-      )
+    return (
+       <div></div>
+    )
   }
 }
 
@@ -35,4 +35,28 @@ endsnippet
 
 snippet cn "className"
 className="$1"
+endsnippet
+
+snippet setstate "React setState" b
+this.setState({
+  ${1}: $1,
+})
+endsnippet
+
+snippet rmeh "React MouseEventHandler" i
+React.MouseEventHandler<${1:HTMLElement}>
+endsnippet
+
+snippet rme "React MouseEvent" i
+e:React.MouseEvent<${1:HTMLElement}>
+endsnippet
+
+snippet ts "timestamp" b
+let timestamp = +new Date()
+endsnippet
+
+snippet cons "timestamp" b
+constructor(props:any) {
+  super(props)
+}
 endsnippet
