@@ -274,3 +274,4 @@ Plugin 'maxmellon/vim-jsx-pretty'
 
 " Find file
 Plugin 'kien/ctrlp.vim'
+Plugin 'Galooshi/vim-import-js'
