@@ -35,8 +35,8 @@ hi Comment ctermfg=red
 
 set foldenable 
 set foldcolumn=0 
-set foldnestmax=5
-set foldlevelstart=6
+set foldnestmax=10
+set foldlevelstart=11
 
 autocmd filetype python set foldmethod=indent
 autocmd filetype javascript set foldmethod=syntax
