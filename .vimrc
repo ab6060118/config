@@ -274,7 +274,6 @@ Plugin 'jiangmiao/auto-pairs'
 
 " AutoComplete
 Plugin 'Valloric/YouCompleteMe'
-Plugin 'marijnh/tern_for_vim'
 " Plugin 'shawncplus/phpcomplete.vim'
 
 " Snippet
