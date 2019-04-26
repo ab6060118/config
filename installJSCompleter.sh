@@ -8,6 +8,3 @@ tar -xvf node-v10.15.0-linux-x64.tar.xz
 rm node-v10.15.0-linux-x64.tar.xz
 
 sudo mv node-v10.15.0-linux-x64 $NODE_INSTALL_PATH
-
-cd ~/.vim/bundle/tern_for_vim
-npm install
