@@ -113,14 +113,14 @@ let g:ycm_use_ultisnips_completer                  = 1
 let g:ycm_key_list_select_completion = ['<C-n>', '<Down>']
 let g:ycm_key_list_previous_completion = ['<C-p>', '<Up>']
 let g:ycm_filetype_blacklist                        = {
-  \ 'tagbar' : 1,
-  \ 'qf' : 1,
-  \ 'notes' : 1,
-  \ 'unite' : 1,
-  \ 'text' : 1,
-  \ 'vimwiki' : 1,
-  \ 'gitcommit' : 1,
-  \}
+            \ 'tagbar' : 1,
+            \ 'qf' : 1,
+            \ 'notes' : 1,
+            \ 'unite' : 1,
+            \ 'text' : 1,
+            \ 'vimwiki' : 1,
+            \ 'gitcommit' : 1,
+            \}
 
 " vdebug
 " let g:vdebug_keymap = { 'step_over': '<S-Q>', 'step_into': '<S-W>', 'step_out': '<S-E>' }
@@ -172,7 +172,7 @@ let g:NERDSpaceDelims=1
 vmap <Leader>a <Plug>(EasyAlign)
 nmap <Leader>a <Plug>(EasyAlign)
 if !exists('g:easy_align_delimiters')
-  let g:easy_align_delimiters = {}
+    let g:easy_align_delimiters = {}
 endif
 let g:easy_align_delimiters['#'] = { 'pattern': '#', 'ignore_groups': ['String']  }
 
@@ -185,13 +185,31 @@ let g:typescript_compiler_binary = 'tsc'
 
 " CtrlP
 let g:ctrlp_prompt_mappings = {
-    \ 'PrtSelectMove("j")':   ['<c-n>', '<down>', '<s-tab>'],
-    \ 'PrtSelectMove("k")':   ['<c-p>', '<up>', '<tab>'],
-    \ 'ToggleFocus()':        [],
-    \ 'PrtHistory(-1)':       [],
-    \ 'PrtHistory(1)':        [],
-\ }
+            \ 'PrtSelectMove("j")':   ['<c-n>', '<down>', '<s-tab>'],
+            \ 'PrtSelectMove("k")':   ['<c-p>', '<up>', '<tab>'],
+            \ 'ToggleFocus()':        [],
+            \ 'PrtHistory(-1)':       [],
+            \ 'PrtHistory(1)':        [],
+            \ }
 let g:ctrlp_by_filename = 0
+
+" FZF
+nmap <C-p> :GFiles<CR>
+let g:fzf_layout = { 'down': '~25%'  }
+let g:fzf_colors =
+            \ { 'fg':      ['fg', 'Normal'],
+            \ 'bg':      ['bg', 'Normal'],
+            \ 'hl':      ['fg', 'Comment'],
+            \ 'fg+':     ['fg', 'CursorLine', 'CursorColumn', 'Normal'],
+            \ 'bg+':     ['bg', 'CursorLine', 'CursorColumn'],
+            \ 'hl+':     ['fg', 'Statement'],
+            \ 'info':    ['fg', 'PreProc'],
+            \ 'border':  ['fg', 'Ignore'],
+            \ 'prompt':  ['fg', 'Conditional'],
+            \ 'pointer': ['fg', 'Exception'],
+            \ 'marker':  ['fg', 'Keyword'],
+            \ 'spinner': ['fg', 'Label'],
+            \ 'header':  ['fg', 'Comment'] }
 
 """"""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
 "                                 Functions                                  "
@@ -224,11 +242,11 @@ endfunction
 let iCanHazVundle =1
 let vundle_readme = expand('~/.vim/bundle/vundle/README.md')
 if !filereadable(vundle_readme)
-  echo "Installing Vundle.."
-  echo ""
-  silent !mkdir -p ~/.vim/bundle
-  silent !git clone https://github.com/gmarik/vundle ~/.vim/bundle/vundle
-  let iCanHazVundle=0
+    echo "Installing Vundle.."
+    echo ""
+    silent !mkdir -p ~/.vim/bundle
+    silent !git clone https://github.com/gmarik/vundle ~/.vim/bundle/vundle
+    let iCanHazVundle=0
 endif
 
 set rtp+=~/.vim/bundle/vundle/
@@ -273,5 +291,5 @@ Plugin 'Quramy/tsuquyomi'
 Plugin 'maxmellon/vim-jsx-pretty'
 
 " Find file
-Plugin 'kien/ctrlp.vim'
-Plugin 'Galooshi/vim-import-js'
+Plugin 'junegunn/fzf', { 'dir': '~/.fzf', 'do': './install --all' }
+Plugin 'junegunn/fzf.vim'
