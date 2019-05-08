@@ -292,3 +292,6 @@ Plugin 'maxmellon/vim-jsx-pretty'
 " Find file
 Plugin 'junegunn/fzf', { 'dir': '~/.fzf', 'do': './install --all' }
 Plugin 'junegunn/fzf.vim'
+
+" react 
+Plugin 'styled-components/vim-styled-components'
