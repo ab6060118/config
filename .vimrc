@@ -64,7 +64,6 @@ nnoremap <leader>n :sp<CR>
 nnoremap <leader>N :vsp<CR>
 nnoremap <F12>     :NERDTreeToggle<CR>
 nnoremap <F2>      :set  invpaste paste?<CR>
-nnoremap <leader>z :TsuImport<CR>
 
 " key mapping for executing code
 autocmd filetype c      map <F9> :w<CR>:!gcc % -lm && ./a.out<CR>
@@ -179,10 +178,6 @@ let g:easy_align_delimiters['#'] = { 'pattern': '#', 'ignore_groups': ['String']
 " vim-javascript
 let g:javascript_plugin_jsdoc = 1
 
-" typescript-vim
-" let g:typescript_indent_disable = 1
-let g:typescript_compiler_binary = 'tsc'
-
 " CtrlP
 let g:ctrlp_prompt_mappings = {
             \ 'PrtSelectMove("j")':   ['<c-n>', '<down>', '<s-tab>'],
@@ -285,8 +280,6 @@ Plugin 'pangloss/vim-javascript'
 
 " Typescript
 Plugin 'leafgarland/typescript-vim'
-Plugin 'Shougo/vimproc.vim'
-Plugin 'Quramy/tsuquyomi'
 Plugin 'maxmellon/vim-jsx-pretty'
 
 " Find file
