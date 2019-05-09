@@ -105,6 +105,7 @@ let g:airline_powerline_fonts                   = 1
 let g:user_emmet_leader_key = '<C-Z>'
 
 " YouCompleteMe
+nmap <leader>d :YcmCompleter GetDoc<CR>
 let g:ycm_global_ycm_extra_conf = '~/.vim/bundle/YouCompleteMe/third_party/ycmd/cpp/ycm/.ycm_extra_conf.py'
 let g:ycm_autoclose_preview_window_after_insertion = 1
 let g:ycm_use_ultisnips_completer                  = 1
