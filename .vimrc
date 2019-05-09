@@ -86,8 +86,6 @@ autocmd BufNewFile,BufRead *.ts set filetype=typescript
 " set different indent style
 autocmd FileType javascript,html,css,less,scss,typescript set tabstop=2 softtabstop=2 shiftwidth=2
 
-autocmd FileType php setl omnifunc=phpcomplete#CompletePHP
-
 " ctag
 nnoremap <C-]> <C-w><C-]><C-w>T
 
@@ -139,20 +137,14 @@ let g:syntastic_always_populate_loc_list = 1
 let g:syntastic_auto_loc_list            = 1
 let g:syntastic_check_on_open            = 1
 let g:syntastic_check_on_wq              = 0
-let g:syntastic_loc_list_height          = 5
 let g:syntastic_python_checkers          = ['pylint']
 let g:syntastic_html_checkers            = ['tidy']
-let g:syntastic_javascript_checkers      = ['jshint']
+let g:syntastic_javascript_checkers      = ['eslint']
 let g:syntastic_php_checkers             = ['php', 'phpcs', 'phpmd']
 
 " GitGutter
 let g:gitgutter_realtime = 1
 let g:gitgutter_eager    = 1
-
-" Ternjs
-let tern#is_show_argument_hints_enabled = 1
-let g:tern_show_argument_hints   = 'on_move'
-let g:tern_show_signature_in_pum = 1
 
 " Ultisnips
 let g:UltiSnipsExpandTrigger       = "<Tab>"
@@ -161,7 +153,7 @@ let g:UltiSnipsJumpBackwardTrigger = "<S-Tab>"
 let g:snips_author                 = "DaubaKao"
 
 " NerdTree
-let NERDTreeQuitOnOpen=0
+let NERDTreeQuitOnOpen=1
 
 " NerdCommenter
 " Add a space before comment
@@ -260,7 +252,7 @@ Plugin 'bling/vim-airline'
 Plugin 'mattn/emmet-vim'
 Plugin 'Yggdroot/indentLine'
 Plugin 'airblade/vim-gitgutter'
-" Plugin 'scrooloose/syntastic'
+Plugin 'scrooloose/syntastic'
 Plugin 'scrooloose/nerdtree'
 Plugin 'scrooloose/nerdcommenter'
 Plugin 'junegunn/vim-easy-align'
@@ -269,7 +261,6 @@ Plugin 'jiangmiao/auto-pairs'
 
 " AutoComplete
 Plugin 'Valloric/YouCompleteMe'
-" Plugin 'shawncplus/phpcomplete.vim'
 
 " Snippet
 Plugin 'SirVer/ultisnips'
