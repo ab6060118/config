@@ -18,6 +18,7 @@ set backspace=indent,eol,start
 set shiftwidth=4
 set tabstop=4
 set laststatus=2		"vimstatusbar
+set redrawtime=10000
 let @/=""
 
 filetype plugin on
@@ -35,8 +36,8 @@ hi Comment ctermfg=red
 
 set foldenable 
 set foldcolumn=0 
-set foldnestmax=10
-set foldlevelstart=11
+set foldnestmax=20
+set foldlevelstart=21
 
 autocmd filetype python set foldmethod=indent
 autocmd filetype javascript set foldmethod=syntax
@@ -143,8 +144,9 @@ let g:syntastic_javascript_checkers      = ['eslint']
 let g:syntastic_php_checkers             = ['php', 'phpcs', 'phpmd']
 
 " GitGutter
-let g:gitgutter_realtime = 1
-let g:gitgutter_eager    = 1
+let g:gitgutter_realtime  = 1
+let g:gitgutter_eager     = 1
+let g:gitgutter_max_signs = 10000
 
 " Ultisnips
 let g:UltiSnipsExpandTrigger       = "<Tab>"
@@ -167,8 +169,11 @@ if !exists('g:easy_align_delimiters')
 endif
 let g:easy_align_delimiters['#'] = { 'pattern': '#', 'ignore_groups': ['String']  }
 
-" vim-javascript
-let g:javascript_plugin_jsdoc = 1
+" perttier
+let g:prettier#exec_cmd_async = 1
+let g:prettier#autoformat = 0
+autocmd BufWritePre *.js,*.jsx,*.mjs,*.ts,*.tsx,*.css,*.less,*.scss,*.json,*.graphql,*.md,*.vue,*.yaml,*.html PrettierAsync
+let g:prettier#config#print_width = 100
 
 " CtrlP
 let g:ctrlp_prompt_mappings = {
@@ -226,56 +231,50 @@ endfunction
 "                                   Others                                   "
 """"""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
 
-let iCanHazVundle =1
-let vundle_readme = expand('~/.vim/bundle/vundle/README.md')
-if !filereadable(vundle_readme)
-    echo "Installing Vundle.."
-    echo ""
-    silent !mkdir -p ~/.vim/bundle
-    silent !git clone https://github.com/gmarik/vundle ~/.vim/bundle/vundle
-    let iCanHazVundle=0
+if empty(glob('~/.vim/autoload/plug.vim'))
+    silent !curl -fLo ~/.vim/autoload/plug.vim --create-dirs
+                \ https://raw.githubusercontent.com/junegunn/vim-plug/master/plug.vim
+    autocmd VimEnter * PlugInstall --sync | source $MYVIMRC
 endif
-
-set rtp+=~/.vim/bundle/vundle/
-call vundle#rc()
 
 """"""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
 "                                  Plugins                                   "
 """"""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
 
-" let Vundle manage Vundle
-" required! 
-Plugin 'gmarik/vundle'
-
+call plug#begin('~/.vim/plugged')
 " git repo
-Plugin 'bling/vim-airline'
-Plugin 'mattn/emmet-vim'
-Plugin 'Yggdroot/indentLine'
-Plugin 'airblade/vim-gitgutter'
-Plugin 'scrooloose/syntastic'
-Plugin 'scrooloose/nerdtree'
-Plugin 'scrooloose/nerdcommenter'
-Plugin 'junegunn/vim-easy-align'
-Plugin 'terryma/vim-multiple-cursors'
-Plugin 'jiangmiao/auto-pairs'
+Plug 'bling/vim-airline'
+Plug 'mattn/emmet-vim'
+Plug 'Yggdroot/indentLine'
+Plug 'airblade/vim-gitgutter'
+" Plug 'scrooloose/syntastic'
+Plug 'scrooloose/nerdtree'
+Plug 'scrooloose/nerdcommenter'
+Plug 'junegunn/vim-easy-align'
+Plug 'terryma/vim-multiple-cursors'
+Plug 'jiangmiao/auto-pairs'
+" Plug 'w0rp/ale'
 
 " AutoComplete
-Plugin 'Valloric/YouCompleteMe'
+Plug 'Valloric/YouCompleteMe', { 'do': './install.py --ts-completer' }
 
 " Snippet
-Plugin 'SirVer/ultisnips'
-Plugin 'honza/vim-snippets'
+Plug 'SirVer/ultisnips'
+Plug 'honza/vim-snippets'
 
-" Plugin 'joonty/vdebug'
-Plugin 'pangloss/vim-javascript'
+" Plug 'joonty/vdebug'
+Plug 'pangloss/vim-javascript'
 
 " Typescript
-Plugin 'leafgarland/typescript-vim'
-Plugin 'maxmellon/vim-jsx-pretty'
+Plug 'leafgarland/typescript-vim'
 
 " Find file
-Plugin 'junegunn/fzf', { 'dir': '~/.fzf', 'do': './install --all' }
-Plugin 'junegunn/fzf.vim'
+Plug 'junegunn/fzf', { 'dir': '~/.fzf', 'do': './install --all' }
+Plug 'junegunn/fzf.vim'
 
 " react 
-Plugin 'styled-components/vim-styled-components'
+Plug 'maxmellon/vim-jsx-pretty'
+Plug 'prettier/vim-prettier', { 'do': 'npm install'  }
+Plug 'styled-components/vim-styled-components'
+
+call plug#end()
