@@ -3,24 +3,36 @@
 """"""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
 
 syntax on
-syntax enable
+set nocompatible
+
+set cursorline             " Find the current line quickly.
+set ttyfast                " Faster redrawing.
+set lazyredraw             " Only redraw when necessary.
 
 set nobackup
 set nowritebackup
-set hidden
+set hidden                 " Switch between buffers without having to save first.
 set number
-" set expandtab
+set expandtab              " Use spaces instead of tabs.
 set wildmenu
-set autoindent
+set autoindent             " Indent according to previous line.
 set hlsearch
-set nocompatible
 set ignorecase
-set encoding=utf8
-set backspace=indent,eol,start
-set shiftwidth=4
-set tabstop=4
-set laststatus=2		"vimstatusbar
-set redrawtime=10000
+set smartcase
+set list
+set autoread              " auto reload thefile when the file changed"
+set scrolloff   =4
+set encoding    =utf8
+set backspace   =indent,eol,start
+set tabstop     =4
+set report      =0        " Always report changed lines.
+set synmaxcol   =200      " Only highlight the first 200 columns.
+set display     =lastline " Show as much as possible of the last line.
+set softtabstop =4        " Tab key indents by 4 spaces.<Paste>
+set shiftwidth  =4        " indents by 4 spaces.
+set laststatus  =2        " vimstatusbar
+set shiftround            " indents to next multiple of 'shiftwidth'.
+set clipboard     =unnamed
 let @/=""
 
 filetype plugin on
@@ -41,10 +53,10 @@ set foldcolumn=0
 set foldnestmax=20
 set foldlevelstart=21
 
-autocmd filetype python set foldmethod=indent
+autocmd filetype python     set foldmethod=indent
 autocmd filetype javascript set foldmethod=syntax
 autocmd filetype typescript set foldmethod=syntax
-autocmd filetype php set foldmethod=indent
+autocmd filetype php        set foldmethod=indent
 
 """"""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
 "                                Key Mapping                                 "
@@ -66,7 +78,9 @@ nnoremap <leader>s :w<CR>
 nnoremap <leader>n :sp<CR>
 nnoremap <leader>N :vsp<CR>
 nnoremap <F12>     :NERDTreeToggle<CR>
-nnoremap <F2>      :set  invpaste paste?<CR>
+nnoremap <F2>      :set invpaste paste?<CR>
+cnoremap <c-n>     <down>
+cnoremap <c-p>     <up>
 
 " key mapping for executing code
 autocmd filetype c      map <F9> :w<CR>:!gcc % -lm && ./a.out<CR>
@@ -82,27 +96,24 @@ nnoremap   j            gj
 nnoremap   gj           j
 
 " set filetypes
-autocmd BufNewFile,BufRead *.js set filetype=javascript
+autocmd BufNewFile,BufRead *.js  set filetype=javascript
 autocmd BufNewFile,BufRead *.jsx set filetype=javascript.jsx
 autocmd BufNewFile,BufRead *.tsx set filetype=typescript.tsx
-autocmd BufNewFile,BufRead *.ts set filetype=typescript
+autocmd BufNewFile,BufRead *.ts  set filetype=typescript
 
 " set different indent style
 autocmd FileType javascript,html,css,less,scss,typescript,typescript.tsx,javascript.jsx set tabstop=2 softtabstop=2 shiftwidth=2
-
-" ctag
-nnoremap <C-]> <C-w><C-]><C-w>T
 
 """"""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
 "                            Plugin Confiuration                             "
 """"""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
 
 " Airline
-let g:airline#extensions#tabline#enabled        = 1
-let g:airline#extensions#tabline#fnamemod       = ':t'
-let g:airline#extensions#hunks#enabled          = 1
-let g:airline#extensions#branch#enabled         = 1
-let g:airline_powerline_fonts                   = 1
+let g:airline#extensions#tabline#enabled  = 1
+let g:airline#extensions#tabline#fnamemod = ':t'
+let g:airline#extensions#hunks#enabled    = 1
+let g:airline#extensions#branch#enabled   = 1
+let g:airline_powerline_fonts             = 1
 
 " emmet-vim
 let g:user_emmet_leader_key = '<C-Z>'
@@ -116,18 +127,14 @@ let g:user_emmet_leader_key = '<C-Z>'
 " let g:ycm_key_list_select_completion = ['<C-n>', '<Down>']
 " let g:ycm_key_list_previous_completion = ['<C-p>', '<Up>']
 " let g:ycm_filetype_blacklist                        = {
-			" \ 'tagbar' : 1,
-			" \ 'qf' : 1,
-			" \ 'notes' : 1,
-			" \ 'unite' : 1,
-			" \ 'text' : 1,
-			" \ 'vimwiki' : 1,
-			" \ 'gitcommit' : 1,
-			" \}
-
-" vdebug
-" let g:vdebug_keymap = { 'step_over': '<S-Q>', 'step_into': '<S-W>', 'step_out': '<S-E>' }
-" let g:vdebug_options = {'break_on_open': 0}
+" \ 'tagbar' : 1,
+" \ 'qf' : 1,
+" \ 'notes' : 1,
+" \ 'unite' : 1,
+" \ 'text' : 1,
+" \ 'vimwiki' : 1,
+" \ 'gitcommit' : 1,
+" \}
 
 " IndentLine
 let g:indentLine_char = '¦'
@@ -192,16 +199,16 @@ nmap <leader>f <Plug>(coc-fix-current)
 nmap <leader>d <Plug>(coc-definition) 
 let g:coc_snippet_next = '<tab>'
 let g:coc_global_extensions = [
-	\'coc-tsserver',
-	\'coc-snippets',
-\ ]
-	" \ 'coc-css',
-	" \ 'coc-highlight',
-	" \ 'coc-html',
-	" \ 'coc-json',
-	" \ 'coc-snippets',
-	" \ 'coc-stylelint',
-	" \ 'coc-tag',
+            \'coc-tsserver',
+            \'coc-snippets',
+            \ ]
+" \ 'coc-css',
+" \ 'coc-highlight',
+" \ 'coc-html',
+" \ 'coc-json',
+" \ 'coc-snippets',
+" \ 'coc-stylelint',
+" \ 'coc-tag',
 
 """"""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
 "                                 Functions                                  "
@@ -264,8 +271,6 @@ Plug 'neoclide/coc.nvim', {'do': './install.sh nightly'}
 " Snippet
 " Plug 'SirVer/ultisnips'
 Plug 'honza/vim-snippets'
-
-" Plug 'joonty/vdebug'
 
 " Find file
 Plug 'junegunn/fzf', { 'dir': '~/.fzf', 'do': './install --all' }
