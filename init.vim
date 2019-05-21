@@ -13,7 +13,7 @@ set nobackup
 set nowritebackup
 set hidden                 " Switch between buffers without having to save first.
 set number
-set expandtab              " Use spaces instead of tabs.
+" set expandtab              " Use spaces instead of tabs.
 set wildmenu
 set autoindent             " Indent according to previous line.
 set hlsearch
@@ -32,7 +32,7 @@ set softtabstop =4        " Tab key indents by 4 spaces.<Paste>
 set shiftwidth  =4        " indents by 4 spaces.
 set laststatus  =2        " vimstatusbar
 set shiftround            " indents to next multiple of 'shiftwidth'.
-set clipboard     =unnamed
+set clipboard   =unnamed
 let @/=""
 
 filetype plugin on
@@ -54,7 +54,7 @@ set foldnestmax=20
 set foldlevelstart=21
 
 autocmd filetype python     set foldmethod=indent
-autocmd filetype javascript set foldmethod=syntax
+autocmd filetype javascript,javascript.jsx set foldmethod=syntax
 autocmd filetype typescript set foldmethod=syntax
 autocmd filetype php        set foldmethod=indent
 
@@ -194,19 +194,20 @@ let g:fzf_colors =
 " ALE
 
 "COC
+nmap <silent> [c <Plug>(coc-diagnostic-prev)
+nmap <silent> ]c <Plug>(coc-diagnostic-next)
+nmap <leader>f <Plug>(coc-fix-current)
+nmap <leader>d <Plug>(coc-definition)
 inoremap <expr> <TAB> pumvisible() ? "\<C-y>" : "\<C-g>u\<TAB>"
-nmap <leader>f <Plug>(coc-fix-current) 
-nmap <leader>d <Plug>(coc-definition) 
 let g:coc_snippet_next = '<tab>'
 let g:coc_global_extensions = [
             \'coc-tsserver',
             \'coc-snippets',
-            \ ]
-" \ 'coc-css',
+            \'coc-css',
+            \'coc-html',
+            \'coc-json',
+            \]
 " \ 'coc-highlight',
-" \ 'coc-html',
-" \ 'coc-json',
-" \ 'coc-snippets',
 " \ 'coc-stylelint',
 " \ 'coc-tag',
 
@@ -221,7 +222,6 @@ function BackgroundToggle()
     if ! exists("g:background_opacity")
         return
     endif
-
 
     if g:background_opacity
         execute "highlight Normal ctermbg=none"
