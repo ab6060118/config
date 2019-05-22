@@ -55,7 +55,7 @@ set foldlevelstart=21
 
 autocmd filetype python     set foldmethod=indent
 autocmd filetype javascript,javascript.jsx set foldmethod=syntax
-autocmd filetype typescript set foldmethod=syntax
+autocmd filetype typescript,typescript.tsx set foldmethod=syntax
 autocmd filetype php        set foldmethod=indent
 
 """"""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
@@ -171,6 +171,8 @@ let g:easy_align_delimiters['#'] = { 'pattern': '#', 'ignore_groups': ['String']
 " perttier
 let g:prettier#exec_cmd_async = 1
 let g:prettier#config#bracket_spacing = 'true'
+let g:prettier#autoformat = 0
+autocmd BufWritePre *.jsx,*.mjs,*.ts,*.tsx,*.css,*.less,*.scss,*.json,*.graphql,*.md,*.vue,*.yaml,*.html PrettierAsync
 
 " FZF
 nmap <C-p> :GFiles<CR>
