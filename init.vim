@@ -13,7 +13,7 @@ set nobackup
 set nowritebackup
 set hidden                 " Switch between buffers without having to save first.
 set number
-" set expandtab              " Use spaces instead of tabs.
+set expandtab              " Use spaces instead of tabs.
 set wildmenu
 set autoindent             " Indent according to previous line.
 set hlsearch
@@ -41,7 +41,7 @@ filetype indent on
 " Color scheme
 colorscheme wombat256
 set t_Co=256
-set background=light
+set background=dark
 hi Comment ctermfg=red
 
 """"""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
@@ -196,11 +196,20 @@ let g:fzf_colors =
 " ALE
 
 "COC
+function! s:check_back_space() abort
+  let col = col('.') - 1
+  return !col || getline('.')[col - 1]  =~# '\s'
+endfunction
+
 nmap <silent> [c <Plug>(coc-diagnostic-prev)
 nmap <silent> ]c <Plug>(coc-diagnostic-next)
 nmap <leader>f <Plug>(coc-fix-current)
 nmap <leader>d <Plug>(coc-definition)
-inoremap <expr> <TAB> pumvisible() ? "\<C-y>" : "\<C-g>u\<TAB>"
+inoremap <silent><expr> <TAB>
+      \ pumvisible() ? coc#_select_confirm() :
+      \ coc#expandableOrJumpable() ? "\<C-r>=coc#rpc#request('doKeymap', ['snippets-expand-jump',''])\<CR>" :
+      \ <SID>check_back_space() ? "\<TAB>" :
+      \ coc#refresh()
 let g:coc_snippet_next = '<tab>'
 let g:coc_global_extensions = [
             \'coc-tsserver',
@@ -208,8 +217,8 @@ let g:coc_global_extensions = [
             \'coc-css',
             \'coc-html',
             \'coc-json',
+            \ 'coc-highlight',
             \]
-" \ 'coc-highlight',
 " \ 'coc-stylelint',
 " \ 'coc-tag',
 

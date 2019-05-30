@@ -1,4 +1,7 @@
 {
   "diagnostic.checkCurrentLine": false,
-  "suggest.noselect": false
+  "suggest.noselect": false,
+  "snippets.extends": {
+    "typescript": ["javascript"]
+  }
 }
