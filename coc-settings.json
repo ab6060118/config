@@ -2,6 +2,8 @@
   "diagnostic.checkCurrentLine": false,
   "suggest.noselect": false,
   "snippets.extends": {
-    "typescript": ["javascript"]
+    "javascriptreact": ["javascript"],
+    "typescriptreact": ["javascript", "javascript-jasmine-arrow"],
+    "typescript": ["javascript", "javascript-jasmine-arrow"]
   }
 }
