@@ -32,7 +32,6 @@ set softtabstop =4        " Tab key indents by 4 spaces.<Paste>
 set shiftwidth  =4        " indents by 4 spaces.
 set laststatus  =2        " vimstatusbar
 set shiftround            " indents to next multiple of 'shiftwidth'.
-set clipboard   =unnamed
 let @/=""
 
 filetype plugin on
@@ -50,37 +49,37 @@ hi Comment ctermfg=red
 
 set foldenable 
 set foldcolumn=0 
-set foldnestmax=20
+set foldnestmax=100
 set foldlevelstart=21
 
 autocmd filetype python     set foldmethod=indent
 autocmd filetype javascript,javascript.jsx set foldmethod=syntax
 autocmd filetype typescript,typescript.tsx set foldmethod=syntax
 autocmd filetype php        set foldmethod=indent
+autocmd filetype yaml        set foldmethod=indent
 
 """"""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
 "                                Key Mapping                                 "
 """"""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
 
 " general key mapping 
-inoremap jj        <ESC>
-nnoremap <space>   za
-nnoremap <leader>b :call BackgroundToggle()<CR>
-nnoremap <leader>h <C-w>h
-nnoremap <leader>j <C-w>j
-nnoremap <leader>k <C-w>k
-nnoremap <leader>l <C-w>l
-nnoremap <leader>t :badd
-nnoremap <S-Q>     :bprev<CR>
-nnoremap <S-W>     :bnext<CR>
-nnoremap <leader>q :bdelete<CR>
-nnoremap <leader>s :w<CR>
-nnoremap <leader>n :sp<CR>
-nnoremap <leader>N :vsp<CR>
-nnoremap <F12>     :NERDTreeToggle<CR>
-nnoremap <F2>      :set invpaste paste?<CR>
-cnoremap <c-n>     <down>
-cnoremap <c-p>     <up>
+inoremap jj         <ESC>
+nnoremap <space>    za
+nnoremap <leader>b  :call BackgroundToggle()<CR>
+nnoremap <leader>h  <C-w>h
+nnoremap <leader>j  <C-w>j
+nnoremap <leader>k  <C-w>k
+nnoremap <leader>l  <C-w>l
+nnoremap <leader>t  :badd
+nnoremap <S-Q>      :bprev<CR>
+nnoremap <S-W>      :bnext<CR>
+nnoremap <leader>q  :bdelete<CR>
+nnoremap <leader>s  :w<CR>
+nnoremap <leader>n  :sp<CR>
+nnoremap <leader>N  :vsp<CR>
+nnoremap <F12>      :NERDTreeToggle<CR>
+nnoremap <F2>       :set  invpaste paste?<CR>
+nnoremap <leader>cd :cd   %:p:h<CR>
 
 " key mapping for executing code
 autocmd filetype c      map <F9> :w<CR>:!gcc % -lm && ./a.out<CR>
@@ -146,6 +145,8 @@ let g:multi_cursor_exit_from_insert_mode = 0
 let g:gitgutter_realtime  = 1
 let g:gitgutter_eager     = 1
 let g:gitgutter_max_signs = 10000
+nmap <Leader>ha <Plug>GitGutterStageHunk
+nmap <Leader>hr <Plug>GitGutterUndoHunk
 
 " " Ultisnips
 " let g:UltiSnipsExpandTrigger       = "<Tab>"
@@ -172,7 +173,7 @@ let g:easy_align_delimiters['#'] = { 'pattern': '#', 'ignore_groups': ['String']
 let g:prettier#exec_cmd_async = 1
 let g:prettier#config#bracket_spacing = 'true'
 let g:prettier#autoformat = 0
-autocmd BufWritePre *.jsx,*.mjs,*.ts,*.tsx,*.css,*.less,*.scss,*.json,*.graphql,*.md,*.vue,*.yaml,*.html PrettierAsync
+" autocmd BufWritePre *.js,*.jsx,*.mjs,*.ts,*.tsx,*.less,*.scss,*.json,*.graphql,*.md,*.vue,*.yaml,*.html PrettierAsync
 
 " FZF
 nmap <C-p> :GFiles<CR>
@@ -217,7 +218,6 @@ let g:coc_global_extensions = [
             \'coc-css',
             \'coc-html',
             \'coc-json',
-            \ 'coc-highlight',
             \]
 " \ 'coc-stylelint',
 " \ 'coc-tag',

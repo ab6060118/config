@@ -68,3 +68,11 @@ endsnippet
 snippet view "getView"
 var view = this.getView()
 endsnippet
+
+snippet lang "lang"
+var lang = Ext.getApplication().getMainView().getViewModel().get('langDesktop')
+endsnippet
+
+snippet ld "viewModel.get('langDesktop')"
+var langDesktop = viewModel.get('langDesktop')
+endsnippet

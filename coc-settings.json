@@ -5,5 +5,9 @@
     "javascriptreact": ["javascript"],
     "typescriptreact": ["javascript", "javascript-jasmine-arrow"],
     "typescript": ["javascript", "javascript-jasmine-arrow"]
+  },
+  "eslint.autoFixOnSave": true,
+  "eslint.options": {
+    "ignorePattern": ["*.d.ts"]
   }
 }
