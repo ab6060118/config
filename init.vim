@@ -34,6 +34,7 @@ set laststatus  =2        " vimstatusbar
 set shiftround            " indents to next multiple of 'shiftwidth'.
 let @/=""
 
+filetype on
 filetype plugin on
 filetype indent on
 
@@ -53,8 +54,8 @@ set foldnestmax=100
 set foldlevelstart=21
 
 autocmd filetype python     set foldmethod=indent
-autocmd filetype javascript,javascript.jsx set foldmethod=syntax
-autocmd filetype typescript,typescript.tsx set foldmethod=syntax
+autocmd filetype javascript,javascriptreact set foldmethod=syntax
+autocmd filetype typescript,typescriptreact set foldmethod=syntax
 autocmd filetype php        set foldmethod=indent
 autocmd filetype yaml        set foldmethod=indent
 
@@ -95,13 +96,13 @@ nnoremap   j            gj
 nnoremap   gj           j
 
 " set filetypes
-autocmd BufNewFile,BufRead *.js  set filetype=javascript
-autocmd BufNewFile,BufRead *.jsx set filetype=javascript.jsx
-autocmd BufNewFile,BufRead *.tsx set filetype=typescript.tsx
-autocmd BufNewFile,BufRead *.ts  set filetype=typescript
+" autocmd BufNewFile,BufRead *.js  set filetype=javascript
+" autocmd BufNewFile,BufRead *.jsx set filetype=javascriptreact
+" autocmd BufNewFile,BufRead *.tsx set filetype=typescriptreact
+" autocmd BufNewFile,BufRead *.ts  set filetype=typescript
 
 " set different indent style
-autocmd FileType javascript,html,css,less,scss,typescript,typescript.tsx,javascript.jsx set tabstop=2 softtabstop=2 shiftwidth=2
+autocmd FileType javascript,html,css,less,scss,typescript,typescriptreact,javascriptreact set tabstop=2 softtabstop=2 shiftwidth=2
 
 """"""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
 "                            Plugin Confiuration                             "
@@ -173,7 +174,7 @@ let g:easy_align_delimiters['#'] = { 'pattern': '#', 'ignore_groups': ['String']
 let g:prettier#exec_cmd_async = 1
 let g:prettier#config#bracket_spacing = 'true'
 let g:prettier#autoformat = 0
-" autocmd BufWritePre *.js,*.jsx,*.mjs,*.ts,*.tsx,*.less,*.scss,*.json,*.graphql,*.md,*.vue,*.yaml,*.html PrettierAsync
+autocmd BufWritePre *.js,*.jsx,*.mjs,*.ts,*.tsx,*.less,*.scss,*.json,*.graphql,*.md,*.vue,*.yaml,*.html,*.ejs PrettierAsync
 
 " FZF
 nmap <C-p> :GFiles<CR>
@@ -288,11 +289,14 @@ Plug 'junegunn/fzf', { 'dir': '~/.fzf', 'do': './install --all' }
 Plug 'junegunn/fzf.vim'
 
 " All Syntax highlight
-Plug 'sheerun/vim-polyglot'
+" Plug 'sheerun/vim-polyglot'
+" Plug 'HerringtonDarkholme/yats.vim'
 
 " react 
-Plug 'maxmellon/vim-jsx-pretty'
 Plug 'styled-components/vim-styled-components'
 Plug 'prettier/vim-prettier', { 'do': 'npm install'  }
+
+" ejs
+Plug 'nikvdp/ejs-syntax'
 
 call plug#end()
