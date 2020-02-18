@@ -96,10 +96,7 @@ nnoremap   j            gj
 nnoremap   gj           j
 
 " set filetypes
-" autocmd BufNewFile,BufRead *.js  set filetype=javascript
-" autocmd BufNewFile,BufRead *.jsx set filetype=javascriptreact
-" autocmd BufNewFile,BufRead *.tsx set filetype=typescriptreact
-" autocmd BufNewFile,BufRead *.ts  set filetype=typescript
+autocmd BufNewFile,BufRead *.ejs set filetype=html
 
 " set different indent style
 autocmd FileType javascript,html,css,less,scss,typescript,typescriptreact,javascriptreact set tabstop=2 softtabstop=2 shiftwidth=2
@@ -118,24 +115,6 @@ let g:airline_powerline_fonts             = 1
 " emmet-vim
 let g:user_emmet_leader_key = '<C-Z>'
 
-" YouCompleteMe
-" nmap <leader>d :YcmCompleter GetDoc<CR>
-" nmap <leader>f :YcmCompleter FixIt<CR>
-" let g:ycm_global_ycm_extra_conf = '~/.vim/bundle/YouCompleteMe/third_party/ycmd/cpp/ycm/.ycm_extra_conf.py'
-" let g:ycm_autoclose_preview_window_after_insertion = 1
-" let g:ycm_use_ultisnips_completer                  = 1
-" let g:ycm_key_list_select_completion = ['<C-n>', '<Down>']
-" let g:ycm_key_list_previous_completion = ['<C-p>', '<Up>']
-" let g:ycm_filetype_blacklist                        = {
-" \ 'tagbar' : 1,
-" \ 'qf' : 1,
-" \ 'notes' : 1,
-" \ 'unite' : 1,
-" \ 'text' : 1,
-" \ 'vimwiki' : 1,
-" \ 'gitcommit' : 1,
-" \}
-
 " IndentLine
 let g:indentLine_char = '¦'
 
@@ -148,12 +127,6 @@ let g:gitgutter_eager     = 1
 let g:gitgutter_max_signs = 10000
 nmap <Leader>ha <Plug>GitGutterStageHunk
 nmap <Leader>hr <Plug>GitGutterUndoHunk
-
-" " Ultisnips
-" let g:UltiSnipsExpandTrigger       = "<Tab>"
-" let g:UltiSnipsJumpForwardTrigger  = "<Tab>"
-" let g:UltiSnipsJumpBackwardTrigger = "<S-Tab>"
-" let g:snips_author                 = "DaubaKao"
 
 " NerdTree
 let NERDTreeQuitOnOpen=1
@@ -174,7 +147,7 @@ let g:easy_align_delimiters['#'] = { 'pattern': '#', 'ignore_groups': ['String']
 let g:prettier#exec_cmd_async = 1
 let g:prettier#config#bracket_spacing = 'true'
 let g:prettier#autoformat = 0
-autocmd BufWritePre *.js,*.jsx,*.mjs,*.ts,*.tsx,*.less,*.scss,*.json,*.graphql,*.md,*.vue,*.yaml,*.html,*.ejs PrettierAsync
+" autocmd BufWritePre *.js,*.jsx,*.mjs,*.ts,*.tsx,*.less,*.scss,*.json,*.graphql,*.md,*.vue,*.yaml,*.html,*.ejs PrettierAsync
 
 " FZF
 nmap <C-p> :GFiles<CR>
@@ -194,8 +167,6 @@ let g:fzf_colors =
             \ 'marker':  ['fg', 'Keyword'],
             \ 'spinner': ['fg', 'Label'],
             \ 'header':  ['fg', 'Comment'] }
-
-" ALE
 
 "COC
 function! s:check_back_space() abort
@@ -275,9 +246,7 @@ Plug 'jiangmiao/auto-pairs'
 " lint
 " Plug 'w0rp/ale'
 
-
 " AutoComplete
-" Plug 'Valloric/YouCompleteMe', { 'do': './install.py --ts-completer' }
 Plug 'neoclide/coc.nvim', {'do': './install.sh nightly'}
 
 " Snippet
@@ -290,7 +259,9 @@ Plug 'junegunn/fzf.vim'
 
 " All Syntax highlight
 " Plug 'sheerun/vim-polyglot'
-" Plug 'HerringtonDarkholme/yats.vim'
+Plug 'HerringtonDarkholme/yats.vim'
+" Plug 'leafgarland/typescript-vim'
+" Plug 'peitalin/vim-jsx-typescript'
 
 " react 
 Plug 'styled-components/vim-styled-components'
