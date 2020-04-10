@@ -151,7 +151,7 @@ let g:prettier#autoformat = 0
 
 " FZF
 nmap <C-p> :GFiles<CR>
-let g:fzf_layout = { 'down': '~25%'  }
+let g:fzf_layout = { 'down': '~30%'  }
 let g:fzf_commands_expect = 'alt-enter,ctrl-x'
 let g:fzf_colors =
             \ { 'fg':      ['fg', 'Normal'],
