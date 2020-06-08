@@ -83,7 +83,7 @@ nnoremap <F2>       :set  invpaste paste?<CR>
 nnoremap <leader>cd :cd   %:p:h<CR>
 
 " key mapping for executing code
-autocmd filetype c      map <F9> :w<CR>:!gcc % -lm && ./a.out<CR>
+autocmd filetype c      map <F9> :w<CR>:!gcc % && ./a.out<CR>
 autocmd filetype cpp    map <F9> :w<CR>:make clean<CR>:make<CR>:!./a.out<CR>
 autocmd filetype sh     map <F9> :w<CR>:!bash %<CR>
 autocmd filetype php    map <F9> :w<CR>:!php %<CR>
@@ -94,9 +94,6 @@ nnoremap   k            gk
 nnoremap   gk           k
 nnoremap   j            gj
 nnoremap   gj           j
-
-" set filetypes
-autocmd BufNewFile,BufRead *.ejs set filetype=html
 
 " set different indent style
 autocmd FileType javascript,html,css,less,scss,typescript,typescriptreact,javascriptreact set tabstop=2 softtabstop=2 shiftwidth=2
@@ -143,7 +140,7 @@ if !exists('g:easy_align_delimiters')
 endif
 let g:easy_align_delimiters['#'] = { 'pattern': '#', 'ignore_groups': ['String']  }
 
-" perttier
+" prettier
 let g:prettier#exec_cmd_async = 1
 let g:prettier#config#bracket_spacing = 'true'
 let g:prettier#autoformat = 0
@@ -193,6 +190,10 @@ let g:coc_global_extensions = [
             \]
 " \ 'coc-stylelint',
 " \ 'coc-tag',
+
+" Markdown
+let g:mkdp_auto_start = 1
+
 
 """"""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
 "                                 Functions                                  "
@@ -258,16 +259,14 @@ Plug 'junegunn/fzf', { 'dir': '~/.fzf', 'do': './install --all' }
 Plug 'junegunn/fzf.vim'
 
 " All Syntax highlight
-" Plug 'sheerun/vim-polyglot'
-Plug 'HerringtonDarkholme/yats.vim'
-" Plug 'leafgarland/typescript-vim'
-" Plug 'peitalin/vim-jsx-typescript'
+Plug 'sheerun/vim-polyglot'
 
 " react 
 Plug 'styled-components/vim-styled-components'
 Plug 'prettier/vim-prettier', { 'do': 'npm install'  }
 
-" ejs
-Plug 'nikvdp/ejs-syntax'
+" markdown
+Plug 'iamcco/markdown-preview.nvim', { 'do': { -> mkdp#util#install() }, 'for': ['markdown', 'vim-plug']}
+Plug 'iamcco/mathjax-support-for-mkdp'
 
 call plug#end()
