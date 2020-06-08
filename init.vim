@@ -33,6 +33,7 @@ set shiftwidth  =4        " indents by 4 spaces.
 set laststatus  =2        " vimstatusbar
 set shiftround            " indents to next multiple of 'shiftwidth'.
 let @/=""
+set conceallevel=0        " show hidden char
 
 filetype on
 filetype plugin on
