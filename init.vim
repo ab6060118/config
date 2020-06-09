@@ -33,7 +33,6 @@ set shiftwidth  =4        " indents by 4 spaces.
 set laststatus  =2        " vimstatusbar
 set shiftround            " indents to next multiple of 'shiftwidth'.
 let @/=""
-set conceallevel=0        " show hidden char
 
 filetype on
 filetype plugin on
@@ -59,6 +58,7 @@ autocmd filetype javascript,javascriptreact set foldmethod=syntax
 autocmd filetype typescript,typescriptreact set foldmethod=syntax
 autocmd filetype php        set foldmethod=indent
 autocmd filetype yaml        set foldmethod=indent
+autocmd Filetype json,markdown let g:indentLine_enabled = 0
 
 """"""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
 "                                Key Mapping                                 "
