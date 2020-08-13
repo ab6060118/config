@@ -188,9 +188,9 @@ let g:coc_global_extensions = [
             \'coc-css',
             \'coc-html',
             \'coc-json',
+            \'coc-tailwindcss',
+            \'coc-stylelint',
             \]
-" \ 'coc-stylelint',
-" \ 'coc-tag',
 
 " Markdown
 let g:mkdp_auto_start = 1
