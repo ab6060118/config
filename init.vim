@@ -79,9 +79,9 @@ nnoremap <leader>q  :bdelete<CR>
 nnoremap <leader>s  :w<CR>
 nnoremap <leader>n  :sp<CR>
 nnoremap <leader>N  :vsp<CR>
-nnoremap <F12>      :NERDTreeToggle<CR>
 nnoremap <F2>       :set  invpaste paste?<CR>
 nnoremap <leader>cd :cd   %:p:h<CR>
+nnoremap <F12>      :CocCommand explorer<CR>
 
 " key mapping for executing code
 autocmd filetype c      map <F9> :w<CR>:!gcc % && ./a.out<CR>
@@ -110,9 +110,6 @@ let g:airline#extensions#hunks#enabled    = 1
 let g:airline#extensions#branch#enabled   = 1
 let g:airline_powerline_fonts             = 1
 
-" emmet-vim
-let g:user_emmet_leader_key = '<C-Z>'
-
 " IndentLine
 let g:indentLine_char = '¦'
 
@@ -125,9 +122,6 @@ let g:gitgutter_eager     = 1
 let g:gitgutter_max_signs = 10000
 nmap <Leader>ha <Plug>GitGutterStageHunk
 nmap <Leader>hr <Plug>GitGutterUndoHunk
-
-" NerdTree
-let NERDTreeQuitOnOpen=1
 
 " NerdCommenter
 " Add a space before comment
@@ -190,6 +184,8 @@ let g:coc_global_extensions = [
             \'coc-json',
             \'coc-tailwindcss',
             \'coc-stylelint',
+            \'coc-explorer',
+            \'coc-markdownlint',
             \]
 
 " Markdown
@@ -236,10 +232,8 @@ endif
 call plug#begin()
 " git repo
 Plug 'bling/vim-airline'
-" Plug 'mattn/emmet-vim'
 Plug 'Yggdroot/indentLine'
 Plug 'airblade/vim-gitgutter'
-Plug 'scrooloose/nerdtree'
 Plug 'scrooloose/nerdcommenter'
 Plug 'junegunn/vim-easy-align'
 Plug 'terryma/vim-multiple-cursors'

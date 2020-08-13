@@ -1,13 +1,17 @@
 {
-  "diagnostic.checkCurrentLine": false,
-  "suggest.noselect": false,
-  "snippets.extends": {
-    "javascriptreact": ["javascript"],
-    "typescriptreact": ["javascript", "javascript-jasmine-arrow"],
-    "typescript": ["javascript", "javascript-jasmine-arrow"]
-  },
-  "eslint.autoFixOnSave": true,
-  "eslint.options": {
-    "ignorePattern": ["*.d.ts"]
-  }
+    "diagnostic.checkCurrentLine": false,
+    "suggest.noselect": false,
+    "snippets.extends": {
+        "javascriptreact": ["javascript"],
+        "typescriptreact": ["javascript", "javascript-jasmine-arrow"],
+        "typescript": ["javascript", "javascript-jasmine-arrow"]
+    },
+    "eslint.autoFixOnSave": true,
+    "eslint.options": {
+        "ignorePattern": ["*.d.ts"]
+    },
+    "html.format.wrapAttributes": "force-expand-multiline",
+    "html.trace.server": "verbose",
+    "explorer.icon.enableNerdfont": true,
+    "explorer.quitOnOpen": true
 }
