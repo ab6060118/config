@@ -236,7 +236,7 @@ endif
 call plug#begin()
 " git repo
 Plug 'bling/vim-airline'
-Plug 'mattn/emmet-vim'
+" Plug 'mattn/emmet-vim'
 Plug 'Yggdroot/indentLine'
 Plug 'airblade/vim-gitgutter'
 Plug 'scrooloose/nerdtree'
