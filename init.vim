@@ -183,9 +183,10 @@ let g:coc_global_extensions = [
             \'coc-html',
             \'coc-json',
             \'coc-tailwindcss',
-            \'coc-stylelint',
             \'coc-explorer',
             \'coc-markdownlint',
+            \'coc-git',
+            \'coc-stylelintplus',
             \]
 
 " Markdown
@@ -233,7 +234,6 @@ call plug#begin()
 " git repo
 Plug 'bling/vim-airline'
 Plug 'Yggdroot/indentLine'
-Plug 'airblade/vim-gitgutter'
 Plug 'scrooloose/nerdcommenter'
 Plug 'junegunn/vim-easy-align'
 Plug 'terryma/vim-multiple-cursors'
@@ -257,7 +257,6 @@ Plug 'junegunn/fzf.vim'
 Plug 'sheerun/vim-polyglot'
 
 " react 
-Plug 'styled-components/vim-styled-components'
 Plug 'prettier/vim-prettier', { 'do': 'npm install'  }
 
 " markdown

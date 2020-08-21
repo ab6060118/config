@@ -13,5 +13,9 @@
     "html.format.wrapAttributes": "force-expand-multiline",
     "html.trace.server": "verbose",
     "explorer.icon.enableNerdfont": true,
-    "explorer.quitOnOpen": true
+    "explorer.quitOnOpen": true,
+    "css.validate": false,
+    "scss.validate": false,
+    "explorer.file.showHiddenFiles": true,
+    "stylelintplus.autoFixOnSave": true
 }
