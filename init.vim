@@ -177,6 +177,7 @@ inoremap <silent><expr> <TAB>
       \ coc#refresh()
 let g:coc_snippet_next = '<tab>'
 let g:coc_global_extensions = [
+            \'coc-emmet',
             \'coc-tsserver',
             \'coc-snippets',
             \'coc-css',
@@ -247,7 +248,7 @@ Plug 'neoclide/coc.nvim', {'do': './install.sh nightly'}
 
 " Snippet
 " Plug 'SirVer/ultisnips'
-Plug 'honza/vim-snippets'
+" Plug 'honza/vim-snippets'
 
 " Find file
 Plug 'junegunn/fzf', { 'dir': '~/.fzf', 'do': './install --all' }
@@ -262,5 +263,8 @@ Plug 'prettier/vim-prettier', { 'do': 'npm install'  }
 " markdown
 Plug 'iamcco/markdown-preview.nvim', { 'do': { -> mkdp#util#install() }, 'for': ['markdown', 'vim-plug']}
 Plug 'iamcco/mathjax-support-for-mkdp'
+
+" CSS
+Plug 'ap/vim-css-color'
 
 call plug#end()
