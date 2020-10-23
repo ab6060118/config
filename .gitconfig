@@ -4,3 +4,6 @@
 	br = branch
     df = diff
     cp = cherry-pick
+
+[diff]
+    tool = vimdiff
