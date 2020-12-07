@@ -88,7 +88,7 @@ autocmd filetype c      map <F9> :w<CR>:!gcc % && ./a.out<CR>
 autocmd filetype cpp    map <F9> :w<CR>:make clean<CR>:make<CR>:!./a.out<CR>
 autocmd filetype sh     map <F9> :w<CR>:!bash %<CR>
 autocmd filetype php    map <F9> :w<CR>:!php %<CR>
-autocmd filetype python map <F9> :w<CR>:!`which python2.7` %<CR>
+autocmd filetype python map <F9> :w<CR>:!`which python3` %<CR>
 
 " Mapping for swap line cursor moving
 nnoremap   k            gk
@@ -244,7 +244,7 @@ Plug 'jiangmiao/auto-pairs'
 " Plug 'w0rp/ale'
 
 " AutoComplete
-Plug 'neoclide/coc.nvim', {'do': './install.sh nightly'}
+Plug 'neoclide/coc.nvim', {'branch': 'release'}
 
 " Snippet
 " Plug 'SirVer/ultisnips'
