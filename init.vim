@@ -89,6 +89,7 @@ autocmd filetype cpp    map <F9> :w<CR>:make clean<CR>:make<CR>:!./a.out<CR>
 autocmd filetype sh     map <F9> :w<CR>:!bash %<CR>
 autocmd filetype php    map <F9> :w<CR>:!php %<CR>
 autocmd filetype python map <F9> :w<CR>:!`which python3` %<CR>
+autocmd filetype javascript map <F9> :w<CR>:!`which node` %<CR>
 
 " Mapping for swap line cursor moving
 nnoremap   k            gk
