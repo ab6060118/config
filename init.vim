@@ -189,6 +189,7 @@ let g:coc_global_extensions = [
             \'coc-markdownlint',
             \'coc-git',
             \'coc-stylelintplus',
+            \'coc-eslint',
             \]
 
 " Markdown
@@ -257,9 +258,6 @@ Plug 'junegunn/fzf.vim'
 
 " All Syntax highlight
 Plug 'sheerun/vim-polyglot'
-
-" react 
-Plug 'prettier/vim-prettier', { 'do': 'npm install'  }
 
 " markdown
 Plug 'iamcco/markdown-preview.nvim', { 'do': { -> mkdp#util#install() }, 'for': ['markdown', 'vim-plug']}
