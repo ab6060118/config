@@ -178,6 +178,8 @@ inoremap <silent><expr> <TAB>
       \ coc#refresh()
 let g:coc_snippet_next = '<tab>'
 let g:coc_global_extensions = [
+            \'coc-sh',
+            \'coc-yaml',
             \'coc-emmet',
             \'coc-tsserver',
             \'coc-snippets',
@@ -253,7 +255,7 @@ Plug 'neoclide/coc.nvim', {'branch': 'release'}
 " Plug 'honza/vim-snippets'
 
 " Find file
-Plug 'junegunn/fzf', { 'dir': '~/.fzf', 'do': './install --all' }
+Plug 'junegunn/fzf', { 'do': { -> fzf#install() } }
 Plug 'junegunn/fzf.vim'
 
 " All Syntax highlight
