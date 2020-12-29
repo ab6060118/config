@@ -194,9 +194,6 @@ let g:coc_global_extensions = [
             \'coc-eslint',
             \]
 
-" Markdown
-let g:mkdp_auto_start = 1
-
 
 """"""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
 "                                 Functions                                  "
