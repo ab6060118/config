@@ -1,0 +1,27 @@
+#!/bin/bash
+
+NVIM_PATH=$HOME/.config/nvim
+
+ln -s $PWD/.tmux.conf $HOME
+ln -s $PWD/.inputrc $HOME
+ln -s $PWD/.gitconfig $HOME
+
+# install homebrew
+/bin/bash -c "$(curl -fsSL https://raw.githubusercontent.com/Homebrew/install/HEAD/install.sh)"
+brew cask instal iterm2
+
+# install nvim
+ln -s $PWD/init.vim $NVIM_PATH
+ln -s $PWD/coc-settings.json $NVIM_PATH
+brew install neovim
+brew install node
+sudo ln -sf /usr/bin/nvim /usr/bin/vim
+
+# install oh my zash
+sh -c "$(curl -fsSL https://raw.github.com/robbyrussell/oh-my-zsh/master/tools/install.sh)"
+ln -sf $PWD/.zshrc $HOME
+ln -s $PWD/daubakao.zsh-theme $HOME/.oh-my-zsh/themes
+
+# install powerline fonts
+git clone git://github.com/powerline/fonts ~/.powerline_fonts
+~/.powerline_fonts/install.sh
