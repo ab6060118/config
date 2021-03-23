@@ -11,6 +11,8 @@ ln -s $PWD/.gitconfig $HOME
 brew cask instal iterm2
 
 # install nvim
+mkdir $NVIM_PATH
+cp $PWD/.vim/colors/wombat256.vim $NVIM_PATH/colors
 ln -s $PWD/init.vim $NVIM_PATH
 ln -s $PWD/coc-settings.json $NVIM_PATH
 brew install neovim
