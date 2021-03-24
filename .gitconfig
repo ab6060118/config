@@ -6,4 +6,6 @@
     cp = cherry-pick
 
 [diff]
-    tool = vimdiff
+    tool = nvimdiff
+[difftool "nvimdiff"]
+    cmd = "nvim -d \"$LOCAL\" \"$REMOTE\""
