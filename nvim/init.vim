@@ -8,6 +8,7 @@ set nocompatible
 set cursorline             " Find the current line quickly.
 set ttyfast                " Faster redrawing.
 set lazyredraw             " Only redraw when necessary.
+set redrawtime=10000
 
 set nobackup
 set nowritebackup
@@ -53,12 +54,13 @@ set foldcolumn=0
 set foldnestmax=100
 set foldlevelstart=21
 
-autocmd filetype python     set foldmethod=indent
-autocmd filetype javascript,javascriptreact set foldmethod=syntax
-autocmd filetype typescript,typescriptreact set foldmethod=syntax
-autocmd filetype php        set foldmethod=indent
-autocmd filetype yaml        set foldmethod=indent
-autocmd Filetype json,markdown let g:indentLine_enabled = 0
+autocmd filetype python                                                set foldmethod=indent
+autocmd filetype javascript,javascriptreact,typescript,typescriptreact set foldmethod=syntax
+autocmd filetype javascript,javascriptreact,typescript,typescriptreact let @s="vi{:sort\<CR>"
+autocmd filetype javascript,javascriptreact,typescript,typescriptreact let @n="f,lr\<CR>\<ESC>"
+autocmd filetype php                                                   set foldmethod=indent
+autocmd filetype yaml                                                  set foldmethod=indent
+autocmd Filetype json,markdown                                         let g:indentLine_enabled = 0
 
 """"""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
 "                                Key Mapping                                 "
@@ -171,6 +173,8 @@ nmap <silent> [c <Plug>(coc-diagnostic-prev)
 nmap <silent> ]c <Plug>(coc-diagnostic-next)
 nmap <leader>f <Plug>(coc-fix-current)
 nmap <leader>d <Plug>(coc-definition)
+xmap <leader>c <Plug>(coc-codeaction-selected)
+nmap <leader>c <Plug>(coc-codeaction-selected)
 inoremap <silent><expr> <TAB>
       \ pumvisible() ? coc#_select_confirm() :
       \ coc#expandableOrJumpable() ? "\<C-r>=coc#rpc#request('doKeymap', ['snippets-expand-jump',''])\<CR>" :
@@ -191,6 +195,8 @@ let g:coc_global_extensions = [
             \'coc-git',
             \'coc-stylelintplus',
             \'coc-eslint',
+            \'coc-react-refactor',
+            \'coc-cssmodules',
             \]
 
 
@@ -263,5 +269,7 @@ Plug 'iamcco/mathjax-support-for-mkdp'
 
 " CSS
 Plug 'ap/vim-css-color'
+
+Plug 'styled-components/vim-styled-components', { 'branch': 'main' }
 
 call plug#end()
