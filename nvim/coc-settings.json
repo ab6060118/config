@@ -2,18 +2,14 @@
     "diagnostic.checkCurrentLine": false,
     "suggest.noselect": false,
     "eslint.autoFixOnSave": true,
-    "eslint.options": {
-        "ignorePattern": ["*.d.ts"]
-    },
     "html.format.wrapAttributes": "force-expand-multiline",
     "explorer.icon.enableNerdfont": true,
     "explorer.quitOnOpen": true,
     "css.validate": false,
     "scss.validate": false,
+    "git.addGBlameToVirtualText": true,
     "explorer.file.showHiddenFiles": true,
     "stylelintplus.autoFixOnSave": true,
-    "git.enableGutters": true,
-    "git.addGBlameToVirtualText": true,
     "coc.preferences.extensionUpdateCheck": "never",
     "tailwindCSS.headwind.classRegex": {
       "reason": "(?:\\bclassName\\s*=\\s*[\\\"\\']([_a-zA-Z0-9\\s\\-\\:\\/]+)[\\\"\\'])|(?:\\btw\\s*`([_a-zA-Z0-9\\s\\-\\:\\/]*)`)",
@@ -25,5 +21,6 @@
       "javascriptreact": "(?:\\bclassName\\s*=\\s*[\\\"\\']([_a-zA-Z0-9\\s\\-\\:\\/]+)[\\\"\\'])|(?:\\btw\\s*`([_a-zA-Z0-9\\s\\-\\:\\/]*)`)",
       "typescript": "(?:\\bclassName\\s*=\\s*[\\\"\\']([_a-zA-Z0-9\\s\\-\\:\\/]+)[\\\"\\'])|(?:\\btw\\s*`([_a-zA-Z0-9\\s\\-\\:\\/]*)`)",
       "typescriptreact": "(?:\\bclassName\\s*=\\s*[\\\"\\']([_a-zA-Z0-9\\s\\-\\:\\/]+)[\\\"\\'])|(?:\\btw\\s*`([_a-zA-Z0-9\\s\\-\\:\\/]*)`)"
-    }
+    },
+    "snippets.ultisnips.enable": false
 }

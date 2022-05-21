@@ -5,6 +5,7 @@
 syntax on
 set nocompatible
 
+set updatetime=300
 set cursorline             " Find the current line quickly.
 set ttyfast                " Faster redrawing.
 set lazyredraw             " Only redraw when necessary.
@@ -111,20 +112,38 @@ let g:airline#extensions#tabline#enabled  = 1
 let g:airline#extensions#tabline#fnamemod = ':t'
 let g:airline#extensions#hunks#enabled    = 1
 let g:airline#extensions#branch#enabled   = 1
+let g:airline#extensions#tabline#left_alt_sep = '|'
 let g:airline_powerline_fonts             = 1
+let g:airline_section_y = ''
+let g:airline_section_z = '%p%% %l%#__restore__#%#__accent_bold#/%L %v%#__restore__#'
+let g:airline_mode_map = {
+      \ '__'     : '-',
+      \ 'c'      : 'C',
+      \ 'i'      : 'I',
+      \ 'ic'     : 'I',
+      \ 'ix'     : 'I',
+      \ 'n'      : 'N',
+      \ 'multi'  : 'M',
+      \ 'ni'     : 'N',
+      \ 'no'     : 'N',
+      \ 'R'      : 'R',
+      \ 'Rv'     : 'R',
+      \ 's'      : 'S',
+      \ 'S'      : 'S',
+      \ ''     : 'S',
+      \ 't'      : 'T',
+      \ 'v'      : 'V',
+      \ 'V'      : 'V',
+      \ ''     : 'V',
+      \ }
+let g:battery#update_statusline = 1 " For statusline.
+
 
 " IndentLine
 let g:indentLine_char = '¦'
 
 " MultipleCursors
 let g:multi_cursor_exit_from_insert_mode = 0
-
-" GitGutter
-let g:gitgutter_realtime  = 1
-let g:gitgutter_eager     = 1
-let g:gitgutter_max_signs = 10000
-nmap <Leader>ha <Plug>GitGutterStageHunk
-nmap <Leader>hr <Plug>GitGutterUndoHunk
 
 " NerdCommenter
 " Add a space before comment
@@ -175,6 +194,7 @@ nmap <leader>f <Plug>(coc-fix-current)
 nmap <leader>d <Plug>(coc-definition)
 xmap <leader>c <Plug>(coc-codeaction-selected)
 nmap <leader>c <Plug>(coc-codeaction-selected)
+
 inoremap <silent><expr> <TAB>
       \ pumvisible() ? coc#_select_confirm() :
       \ coc#expandableOrJumpable() ? "\<C-r>=coc#rpc#request('doKeymap', ['snippets-expand-jump',''])\<CR>" :
@@ -183,8 +203,8 @@ inoremap <silent><expr> <TAB>
 let g:coc_snippet_next = '<tab>'
 let g:coc_global_extensions = [
             \'coc-sh',
+            \'coc-snippets',
             \'coc-yaml',
-            \'coc-emmet',
             \'coc-tsserver',
             \'coc-css',
             \'coc-html',
@@ -198,7 +218,6 @@ let g:coc_global_extensions = [
             \'coc-react-refactor',
             \'coc-cssmodules',
             \]
-
 
 """"""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
 "                                 Functions                                  "
@@ -239,26 +258,24 @@ endif
 
 call plug#begin()
 " git repo
-Plug 'bling/vim-airline'
 Plug 'Yggdroot/indentLine'
 Plug 'scrooloose/nerdcommenter'
 Plug 'junegunn/vim-easy-align'
-Plug 'terryma/vim-multiple-cursors'
 Plug 'jiangmiao/auto-pairs'
 
-" lint
-" Plug 'w0rp/ale'
+" air-line
+Plug 'vim-airline/vim-airline'
 
 " AutoComplete
 Plug 'neoclide/coc.nvim', {'branch': 'release'}
 
 " Snippet
-" Plug 'SirVer/ultisnips'
-" Plug 'honza/vim-snippets'
+Plug 'honza/vim-snippets'
 
 " Find file
 Plug 'junegunn/fzf', { 'do': { -> fzf#install() } }
 Plug 'junegunn/fzf.vim'
+Plug 'mileszs/ack.vim'
 
 " All Syntax highlight
 Plug 'sheerun/vim-polyglot'
@@ -267,9 +284,17 @@ Plug 'sheerun/vim-polyglot'
 Plug 'iamcco/markdown-preview.nvim', { 'do': { -> mkdp#util#install() }, 'for': ['markdown', 'vim-plug']}
 Plug 'iamcco/mathjax-support-for-mkdp'
 
+" git
+Plug 'tpope/vim-fugitive'
+
 " CSS
 Plug 'ap/vim-css-color'
 
 Plug 'styled-components/vim-styled-components', { 'branch': 'main' }
+
+Plug 'heavenshell/vim-jsdoc', {
+  \ 'for': ['javascript', 'javascript.jsx','typescript'],
+  \ 'do': 'make install'
+\}
 
 call plug#end()
