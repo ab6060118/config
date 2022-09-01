@@ -183,7 +183,7 @@ let g:fzf_colors =
             \ 'header':  ['fg', 'Comment'] }
 
 "COC
-function! s:check_back_space() abort
+function! CheckBackspace() abort
   let col = col('.') - 1
   return !col || getline('.')[col - 1]  =~# '\s'
 endfunction
@@ -195,15 +195,14 @@ nmap <leader>d <Plug>(coc-definition)
 xmap <leader>c <Plug>(coc-codeaction-selected)
 nmap <leader>c <Plug>(coc-codeaction-selected)
 
-inoremap <silent><expr> <TAB>
-      \ pumvisible() ? coc#_select_confirm() :
-      \ coc#expandableOrJumpable() ? "\<C-r>=coc#rpc#request('doKeymap', ['snippets-expand-jump',''])\<CR>" :
-      \ <SID>check_back_space() ? "\<TAB>" :
+inoremap <silent><expr> <Tab>
+      \ coc#pum#visible() ? coc#_select_confirm() :
+      \ CheckBackspace() ? "\<Tab>" :
       \ coc#refresh()
+
 let g:coc_snippet_next = '<tab>'
 let g:coc_global_extensions = [
             \'coc-sh',
-            \'coc-snippets',
             \'coc-yaml',
             \'coc-tsserver',
             \'coc-css',
